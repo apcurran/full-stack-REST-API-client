@@ -62,7 +62,7 @@ export default {
         }
       },
       checkForErrors(resData) {
-        this.errorMessage = resData.message;
+        this.errorMessage = resData.error;
       }
     }
 }
