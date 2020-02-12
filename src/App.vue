@@ -17,16 +17,20 @@
   color: #2c3e50;
 }
 
-#nav {
-  padding: 30px;
+h1,
+h2,
+h3,
+.logo {
+  font-family: 'Playfair Display', serif;
 }
 
-#nav a {
-  font-weight: bold;
-  color: #2c3e50;
+p,
+span,
+button,
+input,
+textarea,
+a {
+  font-family: 'Karla', sans-serif;
 }
 
-#nav a.router-link-exact-active {
-  color: #42b983;
-}
 </style>
