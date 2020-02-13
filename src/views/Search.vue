@@ -1,7 +1,10 @@
 <template>
   <main>
       <h1>Search Page</h1>
-      <p v-for="home in homes" :key="home._id">{{ home }}</p>
+      <article v-for="home in homes" :key="home._id">
+        <h2>{{ home.street }}</h2>
+        <router-link :to="'/homes/' + home._id">View this home</router-link>
+      </article>
   </main>
 </template>
 
@@ -18,18 +21,20 @@ export default {
       const options = {
         headers: { "Content-Type": "application/json" }
       };
-      const response = await fetch(API_SEARCH_URL, options);
-      const data = await response.json();
 
-      this.homes = data;
+      try {
+        const response = await fetch(API_SEARCH_URL, options);
+        const data = await response.json();
+  
+        this.homes = data;
+        
+      } catch (err) {
+        console.error(err);
+      }
     }
 }
 </script>
 
 <style>
-
-p {
-  margin: 1rem 0;
-}
 
 </style>

@@ -1,17 +1,18 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Home from '../views/Home'
+import Main from '../views/Main'
 import Signup from '../views/Signup'
 import Login from '../views/Login'
 import Search from '../views/Search'
+import Home from '../views/Home'
 
 Vue.use(VueRouter)
 
 const routes = [
   {
     path: '/',
-    name: 'Home',
-    component: Home
+    name: 'Main',
+    component: Main
   },
   {
     path: '/signup',
@@ -24,9 +25,14 @@ const routes = [
     component: Login
   },
   {
-    path: '/search',
+    path: '/homes',
     name: 'Search',
     component: Search
+  },
+  {
+    path: '/homes/:homeId',
+    name: 'Home',
+    component: Home
   }
 ]
 

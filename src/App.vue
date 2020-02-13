@@ -2,8 +2,11 @@
   <div id="app">
     <header class="header--main">
       <nav class="nav">
-        <router-link class="logo" :to="{ name: 'Home' }">Billow</router-link>
+        <router-link class="logo" :to="{ name: 'Main' }">Billow</router-link>
         <ul class="nav__list">
+          <li class="nav__list__item">
+            <router-link class="nav__list__link" :to="{ name: 'Search' }">Search</router-link>
+          </li>
           <li class="nav__list__item">
             <router-link class="nav__list__link" :to="{ name: 'Login' }">Login</router-link>
           </li>
@@ -49,7 +52,6 @@ a {
 /* Navbar */
 .nav {
   padding: 2.5rem 3rem;
-  background-color: #eee;
   display: flex;
   align-items: center;
 }
