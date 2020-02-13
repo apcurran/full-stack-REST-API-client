@@ -37,10 +37,10 @@ export default {
 <style>
 
 .main-section {
-  padding: 3rem 6rem;
-  background-color: #bee3f8;
+  padding: 6rem 8rem;
+  background-color: #EBF8FF;
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1.25fr;
   place-items: center center;
   gap: 2.5rem;
 }
@@ -80,7 +80,9 @@ export default {
 
 .main-search-link {
   display: inline-block;
-  padding: 1rem 2.5rem;
+  padding: 1rem 2.75rem;
+  text-transform: uppercase;
+  letter-spacing: .06em;
   border-radius: 500px;
   background-color: #fff;
   box-shadow: 0 4px 20px rgba(0, 0, 0, .2);
