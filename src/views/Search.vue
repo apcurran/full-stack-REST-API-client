@@ -2,21 +2,22 @@
   <main class="main main-search">
     <h1 class="main-search__title">Search Page</h1>
     <div class="homes-group">
-      <article v-for="home in homes" :key="home._id" class="homes-group__card">
-        <div class="homes-group__card__img-container">
-          <img :src="home.house_img_main" alt="House" class="homes-group__card__img">
-        </div>
-        <div class="home-group__card__info">
-          <h2 class="home-group__card__info__price">{{ formatPrice(home.price) }}</h2>
-          <h2 class="home-group__card__info__title">{{ home.street }}</h2>
-          <ul class="home-group__card__info__desc-group">
-            <li>{{ home.bedrooms }} bds</li>
-            <li>{{ home.bathrooms }} ba</li>
-            <li>{{ home.squareFeet }} sqft</li>
-          </ul>
-          <router-link :to="'/homes/' + home._id" class="home-group__card__info__link">View this home</router-link>
-        </div>
-      </article>
+      <router-link :to="'/homes/' + home._id" class="home-group__card__info__link"  v-for="home in homes" :key="home._id">
+        <article class="homes-group__card">
+          <div class="homes-group__card__img-container">
+            <img :src="home.house_img_main" alt="House" class="homes-group__card__img">
+          </div>
+          <div class="home-group__card__info">
+            <h2 class="home-group__card__info__price">{{ formatPrice(home.price) }}</h2>
+            <h2 class="home-group__card__info__title">{{ home.street }}</h2>
+            <ul class="home-group__card__info__desc-group">
+              <li>{{ home.bedrooms }} bds</li>
+              <li>{{ home.bathrooms }} ba</li>
+              <li>{{ home.squareFeet }} sqft</li>
+            </ul>
+          </div>
+        </article>
+      </router-link>
     </div>
   </main>
 </template>
