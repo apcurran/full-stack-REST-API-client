@@ -17,6 +17,9 @@
       </nav>
     </header>
     <router-view/>
+    <footer class="footer">
+      <h3 class="footer__title">Created by Alex Curran</h3>
+    </footer>
   </div>
 </template>
 
@@ -49,7 +52,6 @@ a {
   color: #222;
 }
 
-/* Navbar */
 .nav {
   padding: 2.5rem 3rem;
   display: flex;
@@ -75,6 +77,28 @@ a {
 .nav__list__link {
   display: inline-block;
   padding: .5rem;
+}
+
+.footer {
+  margin-top: 6rem;
+  padding: 2rem;
+  background-color: #1a202c;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.footer__title {
+  font-family: 'Karla', sans-serif;
+  font-weight: 400;
+  font-size: .975rem;
+  opacity: .7;
+  transition: opacity 125ms ease-in-out;
+}
+
+.footer__title:hover {
+  opacity: 1;
 }
 
 </style>

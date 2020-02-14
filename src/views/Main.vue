@@ -14,7 +14,7 @@
           </div>
           <div class="main-info__subgroup">
             <img src="../assets/icons/kitchen.svg" alt="Kitchen icon" class="main-info__subgroup__img">
-            <p class="main-info__subgroup__para">2 Bathrooms</p>
+            <p class="main-info__subgroup__para">New Kitchen</p>
           </div>
         </div>
       </section>
@@ -37,8 +37,9 @@ export default {
 <style>
 
 .main-section {
-  padding: 6rem 8rem;
-  background-color: #EBF8FF;
+  min-height: 80vh;
+  padding: 3rem 6rem;
+  background-color: #ebf8ff;
   display: grid;
   grid-template-columns: 1fr 1.25fr;
   place-items: center center;
