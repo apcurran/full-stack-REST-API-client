@@ -1,5 +1,5 @@
 <template>
-  <main class="main-page">
+  <main class="main">
     <section class="main-section">
       <section class="main-info">
         <div class="main-info__group">
@@ -37,8 +37,7 @@ export default {
 <style>
 
 .main-section {
-  min-height: 80vh;
-  padding: 3rem 6rem;
+  padding: 6rem 7rem;
   background-color: #ebf8ff;
   display: grid;
   grid-template-columns: 1fr 1.25fr;

@@ -36,6 +36,7 @@ h2,
 h3,
 .logo {
   font-family: 'Playfair Display', serif;
+  font-weight: 400;
 }
 
 p,
@@ -77,6 +78,11 @@ a {
 .nav__list__link {
   display: inline-block;
   padding: .5rem;
+}
+
+/* Global default height for all pages */
+.main {
+  min-height: 80vh;
 }
 
 .footer {
