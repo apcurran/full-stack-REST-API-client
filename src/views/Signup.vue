@@ -1,5 +1,5 @@
 <template>
-  <main class="main">
+  <main class="main main-form">
     <h1>Signup</h1>
     <form @submit.prevent="signup" class="form-signup">
       <p v-if="errorMessage" class="form__error">{{ errorMessage }}</p>

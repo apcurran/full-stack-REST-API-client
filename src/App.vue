@@ -33,9 +33,12 @@
 
 h1,
 h2,
-h3,
 .logo {
   font-family: 'Playfair Display', serif;
+  font-weight: 400;
+}
+
+h3 {
   font-weight: 400;
 }
 

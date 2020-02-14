@@ -85,7 +85,16 @@ export default {
   letter-spacing: .06em;
   border-radius: 500px;
   background-color: #fff;
-  box-shadow: 0 4px 20px rgba(0, 0, 0, .2);
+  box-shadow: 0 4px 20px rgba(0, 0, 0, .225);
+  
+  transition:
+    background-color 200ms ease-in-out,
+    color 200ms ease-in-out;
+}
+
+.main-search-link:hover {
+  background-color: #2D3748;
+  color: #fff;
 }
 
 </style>

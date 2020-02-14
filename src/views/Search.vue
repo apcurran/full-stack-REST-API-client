@@ -9,7 +9,8 @@
           </div>
           <div class="home-group__card__info">
             <h2 class="home-group__card__info__price">{{ formatPrice(home.price) }}</h2>
-            <h2 class="home-group__card__info__title">{{ home.street }}</h2>
+            <h3 class="home-group__card__info__street">{{ home.street }},</h3>
+            <h3 class="home-group__card__info__state">{{ home.state }}</h3>
             <ul class="home-group__card__info__desc-group">
               <li>{{ home.bedrooms }} bds</li>
               <li>{{ home.bathrooms }} ba</li>
@@ -81,7 +82,7 @@ export default {
 }
 
 .homes-group__card {
-  background-color: #ccc;
+  background-color: #E2E8F0;
   border-radius: 4px;
 }
 
@@ -94,15 +95,25 @@ export default {
 }
 
 .home-group__card__info {
-  padding: .75rem 1rem 1rem 1rem;
+  padding: .5rem 1rem 1rem 1rem;
 }
 
 .home-group__card__info > * {
   margin: .2rem 0;
 }
 
-.home-group__card__info__title {
-  font-size: 1.05rem;
+.home-group__card__info__street,
+.home-group__card__info__state {
+  font-size: 1rem;
+  font-family: 'Karla', sans-serif;
+}
+
+.home-group__card__info__street {
+  margin-bottom: 0;
+}
+
+.home-group__card__info__state {
+  margin-top: 0;
 }
 
 .home-group__card__info__desc-group {
@@ -113,7 +124,7 @@ export default {
 .home-group__card__info__desc-group li {
   padding-right: 1rem;
   padding-left: 1rem;
-  border-right: 1px solid #555;
+  border-right: 1px solid #718096;
 }
 
 .home-group__card__info__desc-group li:first-of-type {
