@@ -8,18 +8,26 @@
       <section class="home-info">
           <div class="desc">
               <h1 class="desc__type">Single Family Home</h1>
-              <h2 class="desc__price"></h2>
-              <h3 class="desc__street"></h3>
+              <h2 class="desc__price">{{ formatPrice(homeInfo.price) }}</h2>
+              <h3 class="desc__street">{{ homeInfo.street }}, {{ homeInfo.city }}, {{ homeInfo.state }} {{ homeInfo.zip }}</h3>
+              <h3 class="desc__sqft">{{ homeInfo.squareFeet }} sqft.</h3>
+              <p class="desc__para">{{ homeInfo.description }}</p>
               <div class="desc__ammenities-group">
-                  <img src="" alt="" class="desc__ammenities__img">
-                  <p class="desc__ammenities__para"></p>
+                  <img src="../assets/icons/bedroom.svg" alt="Bedroom icon" class="desc__ammenities__img">
+                  <p class="desc__ammenities__para">{{ homeInfo.bedrooms }} bedrooms</p>
+              </div>
+              <div class="desc__ammenities-group">
+                  <img src="../assets/icons/bathroom.svg" alt="Bathroom icon" class="desc__ammenities__img">
+                  <p class="desc__ammenities__para">{{ homeInfo.bathrooms }} bathroom(s)</p>
               </div>
           </div>
           <div class="agent">
-              <img src="" alt="" class="agent__avatar">
+              <div class="agent__avatar__wrapper">
+                <img :src="homeInfo.agent_img" alt="Agent avatar" class="agent__avatar">
+              </div>
               <div class="agent__info-group">
-                  <h3 class="agent__info__title"></h3>
-                  <p class="agent__info__para"></p>
+                  <h3 class="agent__info__title">{{ homeInfo.agent }}</h3>
+                  <p class="agent__info__para">{{ homeInfo.agent_phone }}</p>
               </div>
           </div>
           <div class="gmap"></div>
@@ -68,6 +76,9 @@ export default {
 
 .main-home {
     margin: 1rem 3.125rem;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 3rem;
 }
 
 .home-gallery {
@@ -88,7 +99,48 @@ export default {
 }
 
 /* Right side */
+.home-info {
+    width: 45rem;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-auto-rows: auto;
+    gap: 1rem;
+}
+
+.desc__ammenities-group {
+    margin: 1rem 0;
+}
+
+.desc__ammenities__img {
+    width: 3rem;
+}
+
+.desc__price {
+    margin-bottom: 1rem;
+}
+
+.desc__para {
+    margin: 1rem 0;
+    line-height: 1.6;
+    font-size: 1.05rem;
+}
+
+.agent {
+    display: flex;
+    align-items: center;
+}
+
+.agent__avatar {
+    border-radius: 50%;
+    box-shadow: 0 3px 15px rgba(0, 0, 0, .225);
+}
+
+.agent__info-group {
+    margin-left: 1.75rem;
+}
+
 .gmap {
+    grid-row: span 5;
     background-color: #999;
 }
 
