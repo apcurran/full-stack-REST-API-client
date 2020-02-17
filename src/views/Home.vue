@@ -13,12 +13,14 @@
               <h3 class="desc__sqft">{{ homeInfo.squareFeet }} sqft.</h3>
               <p class="desc__para">{{ homeInfo.description }}</p>
               <div class="desc__ammenities-group">
-                  <img src="../assets/icons/bedroom.svg" alt="Bedroom icon" class="desc__ammenities__img">
-                  <p class="desc__ammenities__para">{{ homeInfo.bedrooms }} bedrooms</p>
-              </div>
-              <div class="desc__ammenities-group">
-                  <img src="../assets/icons/bathroom.svg" alt="Bathroom icon" class="desc__ammenities__img">
-                  <p class="desc__ammenities__para">{{ homeInfo.bathrooms }} bathroom(s)</p>
+                <div class="desc__ammenities-subgroup">
+                    <img src="../assets/icons/bedroom.svg" alt="Bedroom icon" class="desc__ammenities__img">
+                    <p class="desc__ammenities__para">{{ homeInfo.bedrooms }} bedrooms</p>
+                </div>
+                <div class="desc__ammenities-subgroup">
+                    <img src="../assets/icons/bathroom.svg" alt="Bathroom icon" class="desc__ammenities__img">
+                    <p class="desc__ammenities__para">{{ homeInfo.bathrooms }} bathroom(s)</p>
+                </div>
               </div>
           </div>
           <div class="agent">
@@ -102,17 +104,30 @@ export default {
 .home-info {
     width: 45rem;
     display: grid;
-    grid-template-columns: 1fr;
-    grid-auto-rows: auto;
     gap: 1rem;
 }
 
 .desc__ammenities-group {
+    display: flex;
+}
+
+.desc__ammenities-subgroup:first-of-type {
+    margin-right: 2rem;
+}
+
+.desc__ammenities-subgroup {
     margin: 1rem 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 .desc__ammenities__img {
     width: 3rem;
+}
+
+.desc__ammenities__para {
+    margin-top: .5rem;
 }
 
 .desc__price {
