@@ -5,6 +5,25 @@
           <img :src="homeInfo.house_img_inside_1" alt="Home inside" class="home-gallery__img2">
           <img :src="homeInfo.house_img_inside_2" alt="Home inside" class="home-gallery__img3">
       </section>
+      <section class="home-info">
+          <div class="desc">
+              <h1 class="desc__type">Single Family Home</h1>
+              <h2 class="desc__price"></h2>
+              <h3 class="desc__street"></h3>
+              <div class="desc__ammenities-group">
+                  <img src="" alt="" class="desc__ammenities__img">
+                  <p class="desc__ammenities__para"></p>
+              </div>
+          </div>
+          <div class="agent">
+              <img src="" alt="" class="agent__avatar">
+              <div class="agent__info-group">
+                  <h3 class="agent__info__title"></h3>
+                  <p class="agent__info__para"></p>
+              </div>
+          </div>
+          <div class="gmap"></div>
+      </section>
   </main>
 </template>
 
@@ -66,6 +85,11 @@ export default {
 .home-gallery__img2,
 .home-gallery__img3 {
     width: 100%;
+}
+
+/* Right side */
+.gmap {
+    background-color: #999;
 }
 
 

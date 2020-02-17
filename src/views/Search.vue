@@ -82,8 +82,9 @@ export default {
 }
 
 .homes-group__card {
-  background-color: #E2E8F0;
+  background-color: hsl(214, 32%, 96%);
   border-radius: 4px;
+  box-shadow: 0 3px 6px rgba(0, 0, 0, .2);
 }
 
 .homes-group__card__img {

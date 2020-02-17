@@ -4,7 +4,7 @@
       <div class="form-section__left signup-left">
         <h1 class="form-section__left__title">Signup for an Account</h1>
       </div>
-      <form @submit.prevent="signup" class="form-section__right signup-right">
+      <form @submit.prevent="signup" id="signup-right" class="form-section__right">
         <p v-if="errorMessage" class="form__error">{{ errorMessage }}</p>
         <div class="form-group">
           <label for="name" class="form-group__label">Name</label>
@@ -74,8 +74,8 @@ export default {
 
 <style>
 
-.signup-right {
-  padding: 4rem 6rem;
+#signup-right {
+  padding: 5rem 6rem;
 }
 
 </style>
