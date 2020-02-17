@@ -2,7 +2,7 @@
   <main class="main main-form">
     <section class="form-section">
       <div class="form-section__left">
-        <h1 class="form-section__left__title">Login</h1>
+        <h1 class="form-section__left__title">Login to Your Account</h1>
       </div>
       <form @submit.prevent="signup" class="form-section__right">
         <p v-if="errorMessage" class="form__error">{{ errorMessage }}</p>
@@ -27,7 +27,6 @@ export default {
       return {
         errorMessage: null,
         user: {
-          name: "",
           email: "",
           password: ""
         }
@@ -103,26 +102,44 @@ export default {
 }
 
 .form-section__right {
+  width: 35rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
-  padding: 4rem 9rem;
+  padding: 8rem 6rem;
   background-color: #fff;
 }
 
 .form-group {
+  flex-grow: 1;
   display: flex;
   flex-direction: column;
 }
 
 .form-group__label {
-  font-size: 1.75rem;
+  font-size: 1.5rem;
   font-family: 'Karla', sans-serif;
+  margin-bottom: .5rem;
+}
+
+.form-group__input {
+  padding: .5rem;
+  font-size: 1rem;
+  border: none;
+  border-bottom: 1px solid #222;
 }
 
 .form-group__submit {
   align-self: flex-start;
+  padding: .9rem 2.75rem;
+  font-size: 1.05rem;
+  border: none;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: .06em;
+  cursor: pointer;
+  background-color: #2a4365;
+  color: #fff;
 }
 
 
