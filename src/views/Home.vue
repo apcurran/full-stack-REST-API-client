@@ -85,10 +85,15 @@ export default {
           };
           
           const setupMap = new google.maps.Map(map, mapOptions);
+          const infoWindow = new google.maps.InfoWindow({
+              content: this.homeInfo.street
+          });
           const marker = new google.maps.Marker({
               position: myLatLon,
               map: setupMap
           });
+
+          marker.addListener("click", () => infoWindow.open(setupMap, marker));
       }
     }
 }
