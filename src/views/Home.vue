@@ -32,7 +32,7 @@
                   <p class="agent__info__para">{{ homeInfo.agent_phone }}</p>
               </div>
           </div>
-          <div class="gmap"></div>
+          <div class="gmap" id="gmap"></div>
       </section>
   </main>
 </template>
@@ -61,14 +61,29 @@ export default {
             console.error(err);
         }
     },
+    beforeUpdate() {
+        this.renderMap();
+    },
     methods: {
-        formatPrice(homePrice) {
-            const formatter = new Intl.NumberFormat("en-US", {
-            style: "currency",
-            currency: "USD"
-            });
+      formatPrice(homePrice) {
+          const formatter = new Intl.NumberFormat("en-US", {
+              style: "currency",
+              currency: "USD"
+          });
 
-            return formatter.format(homePrice);
+          return formatter.format(homePrice);
+      },
+      renderMap() {
+          const map = document.getElementById("gmap");
+          const mapOptions = {
+              center: { lat: this.homeInfo.lat, lng: this.homeInfo.lon },
+              zoom: 7,
+              maxZoom: 15,
+              minZoom: 3,
+              streetViewControl: false
+          };
+          
+          const setupMap = new google.maps.Map(map, mapOptions);
       }
     }
 }
@@ -157,6 +172,8 @@ export default {
 .gmap {
     grid-row: span 5;
     background-color: #999;
+    /* width: 100%; */
+    height: 100%;
 }
 
 
