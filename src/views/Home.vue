@@ -75,8 +75,9 @@ export default {
       },
       renderMap() {
           const map = document.getElementById("gmap");
+          const myLatLon = { lat: this.homeInfo.lat, lng: this.homeInfo.lon };
           const mapOptions = {
-              center: { lat: this.homeInfo.lat, lng: this.homeInfo.lon },
+              center: myLatLon,
               zoom: 7,
               maxZoom: 15,
               minZoom: 3,
@@ -84,6 +85,10 @@ export default {
           };
           
           const setupMap = new google.maps.Map(map, mapOptions);
+          const marker = new google.maps.Marker({
+              position: myLatLon,
+              map: setupMap
+          });
       }
     }
 }
