@@ -59,8 +59,8 @@ export default {
 
           console.log(data);
 
-          if (data.admin === true) {
-            localStorage.setItem("admin", data.admin);
+          if (data.moddedUser.admin === true) {
+            localStorage.setItem("admin", data.moddedUser.admin);
           }
 
           this.$router.push("/dashboard");
@@ -126,9 +126,9 @@ export default {
 }
 
 .form-group__label {
-  font-size: 1.5rem;
+  font-size: 1.2rem;
   font-family: 'Karla', sans-serif;
-  margin-bottom: .5rem;
+  margin-bottom: .4rem;
 }
 
 .form-group__input {
@@ -141,7 +141,7 @@ export default {
 .form-group__submit {
   align-self: flex-start;
   padding: .9rem 2.75rem;
-  font-size: 1.05rem;
+  font-size: 1rem;
   border: none;
   border-radius: 4px;
   text-transform: uppercase;
