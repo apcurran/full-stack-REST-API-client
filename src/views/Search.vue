@@ -43,8 +43,6 @@ export default {
   
         this.homes = data;
 
-        console.log(data);
-        
       } catch (err) {
         console.error(err);
       }

@@ -32,17 +32,23 @@
                   <p class="agent__info__para">{{ homeInfo.agent_phone }}</p>
               </div>
           </div>
-          <div class="gmap" id="gmap"></div>
+          <Gmap v-if="dataLoaded" :homeInfo="homeInfo"/>  
       </section>
   </main>
 </template>
 
 <script>
+import Gmap from "../components/Gmap";
+
 export default {
     name: "Home",
+    components: {
+        Gmap,
+    },
     data() {
         return {
-            homeInfo: {}
+            homeInfo: {},
+            dataLoaded: false
         }
     },
     async created() {
@@ -56,13 +62,11 @@ export default {
 
             console.log(data);
             this.homeInfo = data;
+            this.dataLoaded = true;
 
         } catch (err) {
             console.error(err);
         }
-    },
-    beforeUpdate() {
-        this.renderMap();
     },
     methods: {
       formatPrice(homePrice) {
@@ -72,28 +76,6 @@ export default {
           });
 
           return formatter.format(homePrice);
-      },
-      renderMap() {
-          const map = document.getElementById("gmap");
-          const myLatLon = { lat: this.homeInfo.lat, lng: this.homeInfo.lon };
-          const mapOptions = {
-              center: myLatLon,
-              zoom: 7,
-              maxZoom: 15,
-              minZoom: 3,
-              streetViewControl: false
-          };
-          
-          const setupMap = new google.maps.Map(map, mapOptions);
-          const infoWindow = new google.maps.InfoWindow({
-              content: this.homeInfo.street
-          });
-          const marker = new google.maps.Marker({
-              position: myLatLon,
-              map: setupMap
-          });
-
-          marker.addListener("click", () => infoWindow.open(setupMap, marker));
       }
     }
 }
@@ -182,7 +164,6 @@ export default {
 .gmap {
     grid-row: span 5;
     background-color: #999;
-    /* width: 100%; */
     height: 100%;
 }
 
