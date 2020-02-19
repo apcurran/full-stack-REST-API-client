@@ -5,6 +5,7 @@ import Signup from '../views/Signup'
 import Login from '../views/Login'
 import Search from '../views/Search'
 import Home from '../views/Home'
+import Dashboard from "../views/Dashboard"
 
 Vue.use(VueRouter)
 
@@ -13,6 +14,14 @@ function loggedInRedirect(to, from, next) {
     next("/dashboard");
   } else {
     next();
+  }
+}
+
+function isLoggedIn(to, from, next) {
+  if (localStorage.authToken) {
+    next();
+  } else {
+    next("/login");
   }
 }
 
@@ -33,6 +42,12 @@ const routes = [
     name: 'Login',
     component: Login,
     beforeEnter: loggedInRedirect
+  },
+  {
+    path: '/dashboard',
+    name: 'Dashboard',
+    component: Dashboard,
+    beforeEnter: isLoggedIn
   },
   {
     path: '/homes',
