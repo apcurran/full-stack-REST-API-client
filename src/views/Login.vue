@@ -56,9 +56,11 @@ export default {
           console.log("You are now logged in.");
 
           localStorage.setItem("authToken", data.token);
+          this.$router.push("/dashboard");
 
         } catch (err) {
           console.error(err);
+          this.errorMessage = err.error;
         }
       },
       checkForErrors(resData) {
@@ -140,6 +142,11 @@ export default {
   cursor: pointer;
   background-color: #2a4365;
   color: #fff;
+}
+
+.form__error {
+  margin: 1rem 0;
+  color: #c53030;
 }
 
 

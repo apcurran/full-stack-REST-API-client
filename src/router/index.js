@@ -8,6 +8,14 @@ import Home from '../views/Home'
 
 Vue.use(VueRouter)
 
+function loggedInRedirect(to, from, next) {
+  if (localStorage.authToken) {
+    next("/dashboard");
+  } else {
+    next();
+  }
+}
+
 const routes = [
   {
     path: '/',
@@ -17,12 +25,14 @@ const routes = [
   {
     path: '/signup',
     name: 'Signup',
-    component: Signup
+    component: Signup,
+    beforeEnter: loggedInRedirect
   },
   {
     path: '/login',
     name: 'Login',
-    component: Login
+    component: Login,
+    beforeEnter: loggedInRedirect
   },
   {
     path: '/homes',
