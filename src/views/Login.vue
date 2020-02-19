@@ -57,6 +57,8 @@ export default {
 
           localStorage.setItem("authToken", data.token);
 
+          console.log(data);
+
           if (data.admin === true) {
             localStorage.setItem("admin", data.admin);
           }

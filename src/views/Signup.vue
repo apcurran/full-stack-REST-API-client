@@ -18,6 +18,11 @@
           <label for="password" class="form-group__label">Password</label>
           <input v-model="user.password" type="password" class="form-group__input" name="password" required>
         </div>
+        <p>{{ user.admin }}</p>
+        <div class="form-group">
+          <label for="secret" class="form-group__label">Admin Password</label>
+          <input v-model="user.secret" type="password" class="form-group__input" name="secret">
+        </div>
         <input type="submit" class="form-group__submit" value="Login">
       </form>
     </section>
@@ -33,7 +38,8 @@ export default {
         user: {
           name: "",
           email: "",
-          password: ""
+          password: "",
+          secret: ""
         }
       }
     },
@@ -47,7 +53,8 @@ export default {
           body: JSON.stringify({
             name: this.user.name,
             email: this.user.email,
-            password: this.user.password
+            password: this.user.password,
+            secret: this.user.secret
           })
         };
 
@@ -75,7 +82,7 @@ export default {
 <style>
 
 #signup-right {
-  padding: 5rem 6rem;
+  padding: 3rem 6rem;
 }
 
 </style>
