@@ -4,7 +4,7 @@
       <div class="form-section__left">
         <h1 class="form-section__left__title">Login to Your Account</h1>
       </div>
-      <form @submit.prevent="signup" class="form-section__right">
+      <form @submit.prevent="login" class="form-section__right">
         <p v-if="errorMessage" class="form__error">{{ errorMessage }}</p>
         <div class="form-group">
           <label for="email" class="form-group__label">Email</label>
@@ -33,7 +33,7 @@ export default {
       }
     },
     methods: {
-      async signup() {
+      async login() {
         
         const API_LOGIN_URL = "http://localhost:5000/user/login";
         const options = {
@@ -56,6 +56,11 @@ export default {
           console.log("You are now logged in.");
 
           localStorage.setItem("authToken", data.token);
+
+          if (data.admin === true) {
+            localStorage.setItem("admin", data.admin);
+          }
+
           this.$router.push("/dashboard");
 
         } catch (err) {
