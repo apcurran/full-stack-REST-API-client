@@ -15,8 +15,10 @@
           </ul>
       </nav>
       <section class="dashboard__section">
-        <h1>Dashboard</h1>
-        <Logout/>
+        <div class="dashboard__section__user">
+            <h2 class="dashboard__section__user__greeting">Hello, {{ user }}</h2>
+            <Logout/>
+        </div>
         <keep-alive>
             <component :is="selectedForm"></component>
         </keep-alive>
@@ -38,10 +40,29 @@ export default {
         UpdateHouseForm,
         DeleteHouseForm,
     },
+    async created() {
+        const API_USER_URL = "http://localhost:5000/user/dashboard";
+        const options = {
+            headers: {
+                authorization: `Bearer ${localStorage.authToken}`
+            }
+        };
+
+        try {
+            const response = await fetch(API_USER_URL, options);
+            const data = await response.json();
+
+            this.user = data.name;
+
+        } catch (err) {
+            console.error(err);
+        }
+    },
     data() {
         return {
             selectedForm: "NewHouseForm",
-            activeTabIndex: 0
+            activeTabIndex: 0,
+            user: null
         }
     },
     methods: {
@@ -60,6 +81,7 @@ export default {
 
 :root {
     --purple: #4e62c2;
+    --blue: #3182ce;
 }
 
 .dashboard {
@@ -79,7 +101,7 @@ export default {
     padding: 2rem 0 2rem 2.5rem;
     font-family: "Karla", sans-serif;
     font-size: 1.5rem;
-    color: var(--purple);
+    color: var(--blue);
 }
 
 .dashboard__nav__list {
@@ -102,7 +124,7 @@ export default {
 
 .activeTab {
     background-color: #DAE2EA;
-    border-right: 5px solid var(--purple);
+    border-right: 5px solid var(--blue);
 }
 
 .dashboard__section {
