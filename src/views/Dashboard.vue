@@ -1,6 +1,7 @@
 <template>
   <main class="dashboard">
       <nav class="dashboard__nav">
+          <h1 class="dashboard__nav__title">Dashboard</h1>
           <ul class="dashboard__nav__list">
               <li class="dashboard__nav__tab">
                   <button @click="handleTabClick('NewHouseForm', 0)" :class="{ 'activeTab': activeTabIndex === 0 }" class="dashboard__nav__tab__btn">Add New Home</button>
@@ -57,6 +58,10 @@ export default {
 
 <style>
 
+:root {
+    --purple: #4e62c2;
+}
+
 .dashboard {
     width: 90rem;
     margin: 0 3rem;
@@ -68,6 +73,13 @@ export default {
 
 .dashboard__nav {
     background-color: #EDF2F7;
+}
+
+.dashboard__nav__title {
+    padding: 2rem 0 2rem 2.5rem;
+    font-family: "Karla", sans-serif;
+    font-size: 1.5rem;
+    color: var(--purple);
 }
 
 .dashboard__nav__list {
@@ -85,12 +97,12 @@ export default {
     font-size: 1.05rem;
     outline: none;
     /* Transparent right border on all tabs prevents grow/shrink effect on button click */
-    border-right: 4px solid transparent;
+    border-right: 5px solid transparent;
 }
 
 .activeTab {
     background-color: #DAE2EA;
-    border-right: 4px solid #4E62C2;
+    border-right: 5px solid var(--purple);
 }
 
 .dashboard__section {
