@@ -63,31 +63,29 @@ export default {
     display: grid;
     grid-template-columns: auto 1fr;
 
-    border-radius: 10px;
     box-shadow: 0 6px 12px rgba(0, 0, 0, .19);
 }
 
 .dashboard__nav {
-    width: 14rem;
     background-color: #EDF2F7;
-    border-top-left-radius: 10px;
 }
 
 .dashboard__nav__list {
+    width: 13rem;
     list-style: none;
 }
 
-.dashboard__nav__tab__btn {
+.dashboard__nav__tab__btn {    
+    text-align: left;
     width: 100%;
     cursor: pointer;
-    padding: 1.5rem 0;
+    padding: 1.5rem 2rem 1.5rem 2.5rem;
     border: none;
     background-color: #edf2f7;
     font-size: 1.05rem;
-}
-
-.dashboard__nav__tab__btn:first-of-type {
-    border-top-left-radius: 10px;
+    outline: none;
+    /* Transparent right border on all tabs prevents grow/shrink effect on button click */
+    border-right: 4px solid transparent;
 }
 
 .activeTab {
