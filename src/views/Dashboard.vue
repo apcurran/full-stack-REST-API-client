@@ -79,11 +79,6 @@ export default {
 
 <style>
 
-:root {
-    --purple: #4e62c2;
-    --blue: #3182ce;
-}
-
 .dashboard {
     width: 90rem;
     margin: 0 3rem;

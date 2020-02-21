@@ -31,6 +31,11 @@
   box-sizing: border-box;
 }
 
+:root {
+    --purple: #4e62c2;
+    --blue: #3182ce;
+}
+
 /* Global Fonts */
 h1,
 h2,

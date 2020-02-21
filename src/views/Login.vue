@@ -135,7 +135,12 @@ export default {
   padding: .5rem;
   font-size: 1rem;
   border: none;
-  border-bottom: 1px solid #222;
+  border-bottom: 2px solid #bbb;
+  outline: none;
+}
+
+.form-group__input:focus {
+  border-bottom: 2px solid var(--blue);
 }
 
 .form-group__submit {
