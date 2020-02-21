@@ -71,7 +71,7 @@
     </div>
     <p class="form__error">{{ errorMessage }}</p>
     <p class="form__correct">{{ correctMessage }}</p>
-    <div class="form-house-group">
+    <div class="form-house__submit-group">
       <input type="submit" value="Submit" class="form-house__submit">
     </div>
   </form>
