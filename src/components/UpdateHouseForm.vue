@@ -1,5 +1,5 @@
 <template>
-  <form class="form-house">
+  <form @submit.prevent="submitForm" class="form-house">
     <h1 class="form-house__title">Update a House (Change any necessary values)</h1>
     <div class="form-house__group--update">
       <label for="streetQuery" class="form-house__label--update">Current Street Address:</label>
@@ -89,6 +89,7 @@ export default {
         errorMessage: null,
         correctMessage: null,
         house: {
+          streetQuery: null,
           price: null,
           street: null,
           city: null,
@@ -123,12 +124,13 @@ export default {
       async submitForm() {
         const API_NEW_HOUSE_URL = "http://localhost:5000/homes/update";
         const options = {
-          method: "POST",
+          method: "PATCH",
           headers: {
             authorization: `Bearer ${localStorage.authToken}`,
             "Content-Type": "application/json"
           },
           body: JSON.stringify({
+            streetQuery: this.house.streetQuery,
             price: this.house.price,
             street: this.house.street,
             city: this.house.city,
