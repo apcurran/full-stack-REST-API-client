@@ -31,6 +31,7 @@
   box-sizing: border-box;
 }
 
+/* Global Fonts */
 h1,
 h2,
 .logo {
@@ -47,6 +48,7 @@ span,
 button,
 input,
 textarea,
+label,
 a {
   font-family: 'Karla', sans-serif;
 }

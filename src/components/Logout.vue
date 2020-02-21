@@ -19,4 +19,16 @@ export default {
 
 <style>
 
+.logout {
+    padding: .5rem;
+    background-color: transparent;
+    color: #2B6CB0;
+    font-weight: 600;
+    text-transform: uppercase;
+    font-size: 1rem;
+    cursor: pointer;
+    border: none;
+    letter-spacing: .08em;
+}
+
 </style>

@@ -16,7 +16,7 @@
       </nav>
       <section class="dashboard__section">
         <div class="dashboard__section__user">
-            <h2 class="dashboard__section__user__greeting">Hello, {{ user }}</h2>
+            <h2 class="dashboard__section__user__greeting">Hello, {{ user }}!</h2>
             <Logout/>
         </div>
         <keep-alive>
@@ -127,8 +127,13 @@ export default {
     border-right: 5px solid var(--blue);
 }
 
-.dashboard__section {
-    height: 800px;
+.dashboard__section__user {
+    display: flex;
+    margin: 1.75rem 5rem;
+}
+
+.dashboard__section__user__greeting {
+    margin-right: 2.5rem;
 }
 
 </style>
