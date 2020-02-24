@@ -90,7 +90,7 @@ export default {
           }
       },
       async addToFavorites() {
-          const API_FAVORITES_URL = "http://localhost:5000/homes/favorites";
+          const API_FAVORITES_URL = "http://localhost:5000/user/favorites";
           const options = {
               method: "POST",
               headers: {
@@ -98,7 +98,14 @@ export default {
                   "Content-Type": "application/json"
               },
               body: JSON.stringify({
-                  ...this.homeInfo
+                  home_id: this.homeInfo._id,
+                  home_price: this.homeInfo.price,
+                  home_street: this.homeInfo.street,
+                  home_state: this.homeInfo.state,
+                  home_bedrooms: this.homeInfo.bedrooms,
+                  home_bathrooms: this.homeInfo.bathrooms,
+                  home_squareFeet: this.homeInfo.squareFeet,
+                  home_img_main: this.homeInfo.house_img_main
               })
           };
 
