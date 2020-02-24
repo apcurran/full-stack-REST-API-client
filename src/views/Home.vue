@@ -34,6 +34,7 @@
           </div>
           <div v-if="userLoggedIn" class="favorite">
               <button @click="addToFavorites" class="favorite__btn">+ Add to Favorites</button>
+              <p v-if="favoritedAlert" class="favorite__alert">{{ favoritedAlert }}</p>
           </div>
           <Gmap v-if="dataLoaded" :homeInfo="homeInfo"/>  
       </section>
@@ -52,7 +53,8 @@ export default {
         return {
             homeInfo: {},
             dataLoaded: false,
-            userLoggedIn: false
+            userLoggedIn: false,
+            favoritedAlert: null
         }
     },
     async created() {
@@ -89,6 +91,9 @@ export default {
               this.userLoggedIn = true;
           }
       },
+      alertHomeAdded(data) {
+          this.favoritedAlert = data.message;
+      },
       async addToFavorites() {
           const API_FAVORITES_URL = "http://localhost:5000/user/favorites";
           const options = {
@@ -114,6 +119,7 @@ export default {
 
           console.log(data);
 
+          this.alertHomeAdded(data);
       }
     }
 }
@@ -213,6 +219,11 @@ export default {
 
 .favorite__btn:hover {
     background-color: #e2e8f0;
+}
+
+.favorite__alert {
+    margin-top: 1rem;
+    color: var(--blue);
 }
 
 .gmap {
