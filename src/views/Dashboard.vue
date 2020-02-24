@@ -2,7 +2,7 @@
   <main class="dashboard">
       <nav class="dashboard__nav">
           <h1 class="dashboard__nav__title">Dashboard</h1>
-          <ul class="dashboard__nav__list">
+          <ul v-if="user.admin" class="dashboard__nav__list">
               <li class="dashboard__nav__tab">
                   <button @click="handleTabClick('NewHouseForm', 0)" :class="{ 'activeTab': activeTabIndex === 0 }" class="dashboard__nav__tab__btn">Add New Home</button>
               </li>
@@ -16,12 +16,15 @@
       </nav>
       <section class="dashboard__section">
         <div class="dashboard__section__user">
-            <h2 class="dashboard__section__user__greeting">Hello, {{ user }}!</h2>
+            <h2 class="dashboard__section__user__greeting">Hello, {{ user.name }}!</h2>
             <Logout/>
         </div>
-        <keep-alive>
+        <!-- Show Admin Dash -->
+        <keep-alive v-if="user.admin">
             <component :is="selectedForm"></component>
         </keep-alive>
+        <!-- Else Show User Dash -->
+        <UserDashboard v-else/>
       </section>
   </main>
 </template>
@@ -31,6 +34,7 @@ import Logout from "../components/Logout";
 import NewHouseForm from "../components/NewHouseForm";
 import UpdateHouseForm from "../components/UpdateHouseForm";
 import DeleteHouseForm from "../components/DeleteHouseForm";
+import UserDashboard from "../components/UserDashboard";
 
 export default {
     name: "Dashboard",
@@ -39,6 +43,7 @@ export default {
         NewHouseForm,
         UpdateHouseForm,
         DeleteHouseForm,
+        UserDashboard,
     },
     async created() {
         const API_USER_URL = "http://localhost:5000/user/dashboard";
@@ -52,7 +57,8 @@ export default {
             const response = await fetch(API_USER_URL, options);
             const data = await response.json();
 
-            this.user = data.name;
+            this.user.name = data.name;
+            this.user.admin = data.admin;
 
         } catch (err) {
             console.error(err);
@@ -60,9 +66,12 @@ export default {
     },
     data() {
         return {
-            selectedForm: "NewHouseForm",
+            selectedForm: "NewHouseForm", // Default form shown for admins
             activeTabIndex: 0,
-            user: null
+            user: {
+                name: null,
+                admin: null
+            }
         }
     },
     methods: {
@@ -93,7 +102,7 @@ export default {
 }
 
 .dashboard__nav__title {
-    padding: 2rem 0 2rem 2.5rem;
+    padding: 2rem 2rem 2rem 2.5rem;
     font-family: "Karla", sans-serif;
     font-size: 1.5rem;
     color: var(--blue);

@@ -32,6 +32,9 @@
                   <p class="agent__info__para">{{ homeInfo.agent_phone }}</p>
               </div>
           </div>
+          <div v-if="userLoggedIn" class="favorite">
+              <button @click="addToFavorites" class="favorite__btn">+ Add to Favorites</button>
+          </div>
           <Gmap v-if="dataLoaded" :homeInfo="homeInfo"/>  
       </section>
   </main>
@@ -48,7 +51,8 @@ export default {
     data() {
         return {
             homeInfo: {},
-            dataLoaded: false
+            dataLoaded: false,
+            userLoggedIn: false
         }
     },
     async created() {
@@ -64,6 +68,9 @@ export default {
             this.homeInfo = data;
             this.dataLoaded = true;
 
+            // If a normal user is logged in, show Add To Fav btn
+            this.showAddToFavoritesBtn();
+
         } catch (err) {
             console.error(err);
         }
@@ -76,6 +83,30 @@ export default {
           });
 
           return formatter.format(homePrice);
+      },
+      showAddToFavoritesBtn() {
+          if (!localStorage.admin && localStorage.authToken) {
+              this.userLoggedIn = true;
+          }
+      },
+      async addToFavorites() {
+          const API_FAVORITES_URL = "http://localhost:5000/homes/favorites";
+          const options = {
+              method: "POST",
+              headers: {
+                  authorization: `Bearer ${localStorage.authToken}`,
+                  "Content-Type": "application/json"
+              },
+              body: JSON.stringify({
+                  ...this.homeInfo
+              })
+          };
+
+          const response = await fetch(API_FAVORITES_URL, options);
+          const data = await response.json();
+
+          console.log(data);
+
       }
     }
 }
@@ -159,6 +190,22 @@ export default {
 
 .agent__info-group {
     margin-left: 1.75rem;
+}
+
+.favorite__btn {
+    padding: .5rem 1.5rem;
+    border: 1px solid #a0aec0;
+    border-radius: 4px;
+    background-color: #fff;
+    cursor: pointer;
+    font-size: 1rem;
+    color: #2d3748;
+    
+    transition: background-color 125ms ease-in-out;
+}
+
+.favorite__btn:hover {
+    background-color: #e2e8f0;
 }
 
 .gmap {

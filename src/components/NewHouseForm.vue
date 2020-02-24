@@ -163,7 +163,7 @@ export default {
 
 .form-house {
   margin: 2.65rem 5rem;
-  height: 600px;
+  height: 50rem;
   overflow-y: scroll;
 }
 
