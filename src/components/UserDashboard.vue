@@ -20,7 +20,7 @@
                 </div>
                 </article>
             </router-link>
-            <button @click="deleteHome(home.home_id)" class="home-delete-btn">Delete Home</button>
+            <button @click="deleteHome($event, home.home_id)" class="home-delete-btn">Delete Home</button>
         </div>
     </div>
   </section>
@@ -63,7 +63,8 @@ export default {
 
             return formatter.format(homePrice);
         },
-        async deleteHome(homeId) {
+        async deleteHome(event, homeId) {
+            // DELETE from db
             const API_FAVORITES_DELETE_URL = `http://localhost:5000/user/favorites/${homeId}`;
             const options = {
                 method: "DELETE",
@@ -76,6 +77,12 @@ export default {
             const data = await response.json();
 
             console.log(data);
+
+            // Delete from DOM
+            const currentEl = event.target;
+            const currentCard = currentEl.closest(".home-group__card__info__link-wrapper");
+
+            currentCard.remove();
         }
     }
 }
