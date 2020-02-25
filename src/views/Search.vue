@@ -83,8 +83,14 @@ export default {
           const data = await response.json();
 
           this.homes = data.results;
-          // Set next page num
-          this.searchNav.next = data.next.page;
+          // Set next to null if next prop does not exist on data from API
+          if (data.next === undefined) {
+            this.searchNav.next = null;
+            // Otherwise, set the data prop
+          } else {
+            this.searchNav.next = data.next.page;
+          }
+
           // Set prev page num
           this.searchNav.previous = data.previous.page;
 
@@ -109,8 +115,14 @@ export default {
           this.homes = data.results;
           // Set next page num
           this.searchNav.next = data.next.page;
-          // Set prev page num
-          this.searchNav.previous = data.previous.page;
+          // Set previous to null if previous prop does not exist on data from API
+          if (data.previous === undefined) {
+            this.searchNav.previous = null;
+            // Otherwise, set the data prop
+          } else {
+            this.searchNav.previous = data.previous.page;
+          }
+
 
         } catch (err) {
           console.error(err);
