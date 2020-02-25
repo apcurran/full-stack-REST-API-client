@@ -217,8 +217,11 @@ export default {
 
 .search-nav__btn {
   margin: 0 .5rem;
-  padding: .5rem 1.75rem;
-  font-size: .9rem;
+  padding: .5rem;
+  font-size: 1.05rem;
+  color: var(--blue);
+  background-color: transparent;
+  border: none;
   cursor: pointer;
 }
 
