@@ -219,7 +219,7 @@ export default {
   margin: 0 .5rem;
   padding: .5rem;
   font-size: 1.05rem;
-  color: var(--blue);
+  color: #2b6cb0;
   background-color: transparent;
   border: none;
   cursor: pointer;

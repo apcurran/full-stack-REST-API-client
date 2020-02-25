@@ -66,7 +66,6 @@ export default {
             const response = await fetch(API_HOME_URL, options);
             const data = await response.json();
 
-            console.log(data);
             this.homeInfo = data;
             this.dataLoaded = true;
 
@@ -116,8 +115,6 @@ export default {
 
           const response = await fetch(API_FAVORITES_URL, options);
           const data = await response.json();
-
-          console.log(data);
 
           this.alertHomeAdded(data);
       }
