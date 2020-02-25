@@ -53,11 +53,7 @@ export default {
 
           if (this.errorMessage) return;
 
-          console.log("You are now logged in.");
-
           localStorage.setItem("authToken", data.token);
-
-          console.log(data);
 
           if (data.moddedUser.admin === true) {
             localStorage.setItem("admin", data.moddedUser.admin);

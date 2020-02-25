@@ -12,7 +12,7 @@
           <li class="nav__list__item">
             <router-link class="nav__list__link" :to="{ name: 'Signup' }">Signup</router-link>
           </li>
-          <li v-if="userLoggedIn" class="nav__list__item">
+          <li class="nav__list__item">
             <router-link class="nav__list__link" :to="{ name: 'Dashboard' }">Dashboard</router-link>
           </li>
         </ul>
@@ -25,12 +25,7 @@ export default {
     name: "Navbar",
     data() {
         return {
-            userLoggedIn: null
-        }
-    },
-    mounted() {
-        if (localStorage.authToken) {
-            this.userLoggedIn = true;
+          
         }
     }
 }

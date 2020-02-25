@@ -20,6 +20,10 @@
         </article>
       </router-link>
     </div>
+    <div class="search-nav">
+      <button @click="getPrevSearchResults" class="search-nav__btn">Previous Page</button>
+      <button @click="getNextSearchResults" class="search-nav__btn">Next Page</button>
+    </div>
   </main>
 </template>
 
@@ -28,11 +32,16 @@ export default {
     name: "Search",
     data() {
       return {
-        homes: []
+        homes: [],
+        searchNav: {
+          previous: null,
+          next: null
+        }
       }
     },
     async created() {
-      const API_SEARCH_URL = "http://localhost:5000/homes";
+      // Initial page 1 results
+      const API_SEARCH_URL = "http://localhost:5000/homes?page=1&limit=20";
       const options = {
         headers: { "Content-Type": "application/json" }
       };
@@ -40,8 +49,11 @@ export default {
       try {
         const response = await fetch(API_SEARCH_URL, options);
         const data = await response.json();
-  
-        this.homes = data;
+
+        // Set home results
+        this.homes = data.results;
+        // Set next page num
+        this.searchNav.next = data.next.page;
 
       } catch (err) {
         console.error(err);
@@ -55,7 +67,56 @@ export default {
         });
 
         return formatter.format(homePrice);
-      }
+      },
+      async getNextSearchResults() {
+        if (this.searchNav.next === null) return;
+
+        const searchPage = this.searchNav.next;
+        const API_SEARCH_URL = `http://localhost:5000/homes?page=${searchPage}&limit=20`;
+        const options = {
+          headers: { "Content-Type": "application/json" }
+        };
+
+        try {
+          
+          const response = await fetch(API_SEARCH_URL, options);
+          const data = await response.json();
+
+          this.homes = data.results;
+          // Set next page num
+          this.searchNav.next = data.next.page;
+          // Set prev page num
+          this.searchNav.previous = data.previous.page;
+
+        } catch (err) {
+          console.error(err);
+        }
+      },
+      async getPrevSearchResults() {
+        if (this.searchNav.previous === null) return;
+
+        const searchPage = this.searchNav.previous;
+        const API_SEARCH_URL = `http://localhost:5000/homes?page=${searchPage}&limit=20`;
+        const options = {
+          headers: { "Content-Type": "application/json" }
+        };
+
+        try {
+          
+          const response = await fetch(API_SEARCH_URL, options);
+          const data = await response.json();
+
+          this.homes = data.results;
+          // Set next page num
+          this.searchNav.next = data.next.page;
+          // Set prev page num
+          this.searchNav.previous = data.previous.page;
+
+        } catch (err) {
+          console.error(err);
+          console.trace(err);
+        }
+      },
     }
 }
 </script>
@@ -133,6 +194,20 @@ export default {
 .home-group__card__info__desc-group li:last-of-type {
   padding-right: 0;
   border-right: none;
+}
+
+.search-nav {
+  margin: 2.5rem 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-nav__btn {
+  margin: 0 .5rem;
+  padding: .5rem 1.75rem;
+  font-size: .9rem;
+  cursor: pointer;
 }
 
 </style>
