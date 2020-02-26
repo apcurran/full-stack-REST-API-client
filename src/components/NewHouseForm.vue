@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submitForm" class="form-house">
+  <form @submit.prevent="submitForm" id="newHouseForm" class="form-house" enctype="multipart/form-data">
     <h1 class="form-house__title">New House</h1>
     <div class="form-house__group">
       <label for="price" class="form-house__label">Price</label>
@@ -55,19 +55,19 @@
     </div>
     <div class="form-house__group">
       <label for="agent_img" class="form-house__label">Agent Image (URL)</label>
-      <input v-model="house.agent_img" type="text" class="form-house__input" name="agent_img" required>
+      <input @change="onSelect($event)" ref="agentImg" type="file" class="form-house__input" name="agent_img" accept="image/*" required>
     </div>
     <div class="form-house__group">
       <label for="house_img_main" class="form-house__label">Main House Image (URL)</label>
-      <input v-model="house.house_img_main" type="text" class="form-house__input" name="house_img_main" required>
+      <input @change="onSelect($event)" ref="houseImgMain" type="file" class="form-house__input" name="house_img_main" accept="image/*" required>
     </div>
     <div class="form-house__group">
       <label for="house_img_inside_1" class="form-house__label">House (Indoors) Image 1 (URL)</label>
-      <input v-model="house.house_img_inside_1" type="text" class="form-house__input" name="house_img_inside_1" required>
+      <input @change="onSelect($event)" ref="houseImgInside1" type="file" class="form-house__input" name="house_img_inside_1" accept="image/*" required>
     </div>
     <div class="form-house__group">
       <label for="house_img_inside_2" class="form-house__label">House (Indoors) Image 2 (URL)</label>
-      <input v-model="house.house_img_inside_2" type="text" class="form-house__input" name="house_img_inside_2" required>
+      <input @change="onSelect($event)" ref="houseImgInside2" type="file" class="form-house__input" name="house_img_inside_2" accept="image/*" required>
     </div>
     <p class="form__error">{{ errorMessage }}</p>
     <p class="form__correct">{{ correctMessage }}</p>
@@ -116,15 +116,17 @@ export default {
           this.correctMessage = resData.message;
         }
       },
+      onSelect(event) {
+        const currentFileName = event.target.name;
+        const currentFile = event.target.files[0];
+
+        this[currentFileName] = currentFile;
+
+      },
       async submitForm() {
+
         const API_NEW_HOUSE_URL = "http://localhost:5000/homes/new";
-        const options = {
-          method: "POST",
-          headers: {
-            authorization: `Bearer ${localStorage.authToken}`,
-            "Content-Type": "application/json"
-          },
-          body: JSON.stringify({
+        const rawData = {
             price: this.house.price,
             street: this.house.street,
             city: this.house.city,
@@ -137,12 +139,22 @@ export default {
             squareFeet: this.house.squareFeet,
             description: this.house.description,
             agent: this.house.agent,
-            agent_img: this.house.agent_img,
             agent_phone: this.house.agent_phone,
-            house_img_main: this.house.house_img_main,
-            house_img_inside_1: this.house.house_img_inside_1,
-            house_img_inside_2: this.house.house_img_inside_2
-          })
+        };
+        let formData = new FormData();
+
+        formData.append("agent_img", this.agent_img);
+        formData.append("house_img_main", this.house_img_main);
+        formData.append("house_img_inside_1", this.house_img_inside_1);
+        formData.append("house_img_inside_2", this.house_img_inside_2);
+        formData.append("data", rawData);
+
+        const options = {
+          method: "POST",
+          headers: {
+            authorization: `Bearer ${localStorage.authToken}`,
+          },
+          body: formData
         };
 
         try {
