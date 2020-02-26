@@ -55,19 +55,19 @@
     </div>
     <div class="form-house__group">
       <label for="agent_img" class="form-house__label">Agent Image (URL)</label>
-      <input @change="onSelect($event)" ref="agentImg" type="file" class="form-house__input" name="agent_img" accept="image/*" required>
+      <input @change="onSelect($event)" type="file" class="form-house__input" name="agent_img" accept="image/*" required>
     </div>
     <div class="form-house__group">
       <label for="house_img_main" class="form-house__label">Main House Image (URL)</label>
-      <input @change="onSelect($event)" ref="houseImgMain" type="file" class="form-house__input" name="house_img_main" accept="image/*" required>
+      <input @change="onSelect($event)" type="file" class="form-house__input" name="house_img_main" accept="image/*" required>
     </div>
     <div class="form-house__group">
       <label for="house_img_inside_1" class="form-house__label">House (Indoors) Image 1 (URL)</label>
-      <input @change="onSelect($event)" ref="houseImgInside1" type="file" class="form-house__input" name="house_img_inside_1" accept="image/*" required>
+      <input @change="onSelect($event)" type="file" class="form-house__input" name="house_img_inside_1" accept="image/*" required>
     </div>
     <div class="form-house__group">
       <label for="house_img_inside_2" class="form-house__label">House (Indoors) Image 2 (URL)</label>
-      <input @change="onSelect($event)" ref="houseImgInside2" type="file" class="form-house__input" name="house_img_inside_2" accept="image/*" required>
+      <input @change="onSelect($event)" type="file" class="form-house__input" name="house_img_inside_2" accept="image/*" required>
     </div>
     <p class="form__error">{{ errorMessage }}</p>
     <p class="form__correct">{{ correctMessage }}</p>
