@@ -194,6 +194,8 @@ export default {
 }
 
 .agent__avatar {
+    width: 8rem;
+    height: 8rem;
     border-radius: 50%;
     box-shadow: 0 3px 15px rgba(0, 0, 0, .225);
 }
