@@ -34,7 +34,6 @@ export default {
     },
     methods: {
       async login() {
-        
         const API_LOGIN_URL = "http://localhost:5000/user/login";
         const options = {
           method: "POST",

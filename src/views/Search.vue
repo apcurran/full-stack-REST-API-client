@@ -1,6 +1,6 @@
 <template>
   <main class="main main-search">
-    <h1 class="main-search__title">Search Page</h1>
+    <Searchbar v-on:searchResults="updateHomeResults($event)"/>
     <div class="homes-group">
       <router-link :to="'/homes/' + home._id" class="home-group__card__info__link"  v-for="home in homes" :key="home._id">
         <article class="homes-group__card">
@@ -28,8 +28,13 @@
 </template>
 
 <script>
+import Searchbar from "../components/Searchbar";
+
 export default {
     name: "Search",
+    components: {
+      Searchbar,
+    },
     data() {
       return {
         homes: [],
@@ -129,6 +134,13 @@ export default {
           console.trace(err);
         }
       },
+      updateHomeResults(homeResults) {
+        this.homes = homeResults;
+
+        // Reset prev and next btns
+        this.searchNav.previous = null;
+        this.searchNav.next = null;
+      }
     }
 }
 </script>
@@ -139,11 +151,6 @@ export default {
   width: 80rem;
   max-width: 92.5%;
   margin: 0 auto;
-}
-
-.main-search__title {
-  margin: 1rem 0 2rem 0;
-  text-align: center;
 }
 
 .homes-group {
