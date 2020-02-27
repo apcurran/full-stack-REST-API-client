@@ -98,11 +98,11 @@ export default {
 }
 
 .searchbar-form__input:focus {
-    background-color: #EDF2F7;
+    background-color: hsl(210, 38%, 96%);
 }
 
 .searchbar-form__input:focus + .searchbar-form__submit {
-    background-color: #EDF2F7;
+    background-color: hsl(210, 38%, 96%);
 }
 
 </style>
