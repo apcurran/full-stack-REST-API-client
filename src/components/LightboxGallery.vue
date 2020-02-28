@@ -27,6 +27,9 @@ export default {
             index: 0
         }
     },
+    mounted() {
+        window.addEventListener("keydown", this.keyPressed);
+    },
     methods: {
         selectCurrentImg(currentIndex) {
             this.index = currentIndex;
@@ -38,6 +41,11 @@ export default {
         show(currentIndex) {
             this.selectCurrentImg(currentIndex);
             this.visible = true;
+        },
+        keyPressed(event) {
+            if (event.key !== "Escape") return;
+
+            this.hide();
         }
     }
 }
@@ -87,6 +95,8 @@ export default {
     font-size: 3rem;
     color: #fff;
     cursor: pointer;
+
+    transition: color 125ms ease-in-out;
 }
 
 .lightbox__x-btn:hover {
