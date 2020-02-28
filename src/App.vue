@@ -29,6 +29,7 @@ export default {
 :root {
     --purple: #4e62c2;
     --blue: #3182ce;
+    --light-blue: #63b3ed;
 }
 
 /* Global Fonts */

@@ -7,6 +7,7 @@
         </section>
         <div v-if="visible" @click="hide" class="lightbox">
             <img :src="houseImages[index]" @click.stop="" alt="House image" class="lightbox__img">
+            <span class="lightbox__x-btn">&times;</span>
         </div>
     </main>
 </template>
@@ -53,10 +54,9 @@ export default {
 
 .home-gallery__img1 {
     grid-column: 1 / -1;
-    width: 100%;
-    cursor: pointer;
 }
 
+.home-gallery__img1,
 .home-gallery__img2,
 .home-gallery__img3 {
     width: 100%;
@@ -64,11 +64,11 @@ export default {
 }
 
 .lightbox {
-    display: flex;
     position: fixed;
+    display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 100;
+    z-index: 10;
     top: 0;
     right: 0;
     bottom: 0;
@@ -77,6 +77,20 @@ export default {
     height: 100%;
 
     background-color: rgba(0, 0, 0, .65);
+}
+
+.lightbox__x-btn {
+    position: absolute;
+    top: 1rem;
+    right: 2rem;
+    z-index: 11;
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.lightbox__x-btn:hover {
+    color: var(--light-blue);
 }
 
 </style>
