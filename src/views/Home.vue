@@ -1,10 +1,6 @@
 <template>
   <main class="main main-home">
-      <section class="home-gallery">
-          <img :src="homeInfo.house_img_main" alt="Home" class="home-gallery__img1">
-          <img :src="homeInfo.house_img_inside_1" alt="Home inside" class="home-gallery__img2">
-          <img :src="homeInfo.house_img_inside_2" alt="Home inside" class="home-gallery__img3">
-      </section>
+      <LightboxGallery :houseImages="houseImages"/>
       <section class="home-info">
           <div class="desc">
               <h1 class="desc__type">Single Family Home</h1>
@@ -42,16 +38,19 @@
 </template>
 
 <script>
+import LightboxGallery from "../components/LightboxGallery";
 import Gmap from "../components/Gmap";
 
 export default {
     name: "Home",
     components: {
         Gmap,
+        LightboxGallery,
     },
     data() {
         return {
             homeInfo: {},
+            houseImages: [],
             dataLoaded: false,
             userLoggedIn: false,
             favoritedAlert: null
@@ -66,6 +65,9 @@ export default {
             const response = await fetch(API_HOME_URL, options);
             const data = await response.json();
 
+            const homeImagesArr = [data.house_img_main, data.house_img_inside_1, data.house_img_inside_2];
+
+            this.houseImages = homeImagesArr;
             this.homeInfo = data;
             this.dataLoaded = true;
 
@@ -129,23 +131,6 @@ export default {
     display: grid;
     grid-template-columns: auto 1fr;
     gap: 3rem;
-}
-
-.home-gallery {
-    width: 40rem;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: .25rem;
-}
-
-.home-gallery__img1 {
-    grid-column: 1 / -1;
-    width: 100%;
-}
-
-.home-gallery__img2,
-.home-gallery__img3 {
-    width: 100%;
 }
 
 /* Right side */
