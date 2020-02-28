@@ -64,4 +64,9 @@ a {
   min-height: 80vh;
 }
 
+::selection {
+  background-color: #c3dafe;
+  color: #000;
+}
+
 </style>
