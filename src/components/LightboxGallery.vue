@@ -87,10 +87,14 @@ export default {
     background-color: rgba(0, 0, 0, .65);
 }
 
+.lightbox__img {
+    max-width: 52rem;
+}
+
 .lightbox__x-btn {
     position: absolute;
-    top: 1rem;
-    right: 2rem;
+    top: 3%;
+    right: 3%;
     z-index: 11;
     font-size: 3rem;
     color: #fff;

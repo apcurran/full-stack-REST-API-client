@@ -1,19 +1,27 @@
-# client
+# Billow Home Realty App (Client Side)
 
-## Project setup
-```
-npm install
-```
+## Features:
 
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
+* Utilizes Vue.js framework
 
-### Compiles and minifies for production
-```
-npm run build
-```
+* View and component code structure
 
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+* Fetch API used to send requests to custom back-end API for house data (GET, POST, PATCH, & DELETE)
+
+* Account creation for users/admins, login, & logout with JWT for auth
+
+* Pagination for home search view
+
+* JS Lightbox gallery for Home view
+
+* User/admin unique dashboards
+
+* Logged in users may save favorite homes during searches
+
+* User dashboard has the ability to view and delete favorite homes
+
+* Admin dashboard has selective components that show on tab click
+
+* Google Maps API implemented with custom markers to show lat/lon location of individual homes
+
+* Modern CSS layout via Grid and Flexbox used throughout 
