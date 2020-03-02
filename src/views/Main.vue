@@ -1,5 +1,5 @@
 <template>
-  <main class="main">
+  <main class="main main-view">
     <section class="main-section">
       <section class="main-info">
         <div class="main-info__group">
@@ -27,7 +27,6 @@
 </template>
 
 <script>
-// @ is an alias to /src
 
 export default {
   name: "Main",
@@ -95,6 +94,57 @@ export default {
 .main-search-link:hover {
   background-color: #2D3748;
   color: #fff;
+}
+
+@media screen and (max-width: 80em) {
+    .main-section {
+        padding: 7rem 3rem;
+    }
+
+    .main-img {
+        width: 30rem;
+    }
+}
+
+@media screen and (max-width: 63.5em) {
+    .main-section {
+        grid-template-columns: 1fr;
+    }
+
+    .main-info {
+        justify-self: center;
+    }
+}
+
+@media screen and (max-width: 38.25em) {
+    .main-section {
+        padding: 8rem 1rem;
+    }
+
+    .main-info__title {
+        font-size: 1.25rem;
+    }
+
+    .main-info__group {
+        gap: .75rem;
+    }
+
+    .main-info__subgroup__img {
+        width: 2rem;
+    }
+
+    .main-info__subgroup__para {
+        font-size: .9rem;
+    }
+
+    .main-img {
+        width: 100%;
+    }
+
+    .main-search-link {
+        padding: .9rem 2.5rem;
+        font-size: .95rem;
+    }
 }
 
 </style>

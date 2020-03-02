@@ -59,7 +59,7 @@ export default {
 
 .searchbar-form {
     width: 40rem;
-    max-width: 92.5%;
+    max-width: 100%;
     margin: 2rem auto 5rem auto;
     text-align: center;
 }
@@ -103,6 +103,13 @@ export default {
 
 .searchbar-form__input:focus + .searchbar-form__submit {
     background-color: hsl(210, 38%, 96%);
+}
+
+@media screen and (max-width: 26em) {
+    .searchbar-form__input {
+        padding: .5rem .75rem;
+        font-size: .95rem;
+    }
 }
 
 </style>

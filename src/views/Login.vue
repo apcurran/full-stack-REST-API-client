@@ -74,6 +74,7 @@ export default {
 
 <style>
 
+/* General login & signup form layout/styling */
 .main-form {
   display: flex;
   justify-content: center;

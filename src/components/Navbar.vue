@@ -60,4 +60,30 @@ export default {
   padding: .5rem;
 }
 
+@media screen and (max-width: 42.5em) {
+  .nav {
+    flex-direction: column;
+  }
+
+  .nav__list {
+    margin: 1rem 0 0 0;
+  }
+}
+
+@media screen and (max-width: 28em) {
+  .nav {
+    padding: 1.25rem 1rem;
+  }
+
+  .nav__list__item {
+    margin: 0 .2rem;
+  }
+
+  .nav__list__link {
+    font-size: .95rem;
+  }
+}
+
+
+
 </style>
