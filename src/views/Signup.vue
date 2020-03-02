@@ -85,4 +85,10 @@ export default {
   padding: 3rem 6rem;
 }
 
+@media screen and (max-width: 41em) {
+  #signup-right {
+    padding: 3rem 1.65rem;
+  }
+}
+
 </style>

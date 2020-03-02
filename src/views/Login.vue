@@ -86,6 +86,7 @@ export default {
 }
 
 .form-section {
+  margin: 0 2rem;
   display: grid;
   grid-template-columns: repeat(2, 1fr);
   min-height: 60vh;
@@ -155,6 +156,47 @@ export default {
 .form__error {
   margin: 1rem 0;
   color: #c53030;
+}
+
+@media screen and (max-width: 76em) {
+  .form-section {
+    margin: 4rem;
+    grid-template-columns: 1fr;
+    grid-auto-rows: .75fr 1fr;
+  }
+
+  .form-section__right {
+    width: 40rem;
+    padding: 4rem;
+  }
+
+  .form-group {
+    margin-bottom: 3rem;
+  }
+}
+
+@media screen and (max-width: 41em) {
+  .form-section {
+    margin: 4rem 1rem;
+    flex: 1 1 auto;
+  }
+
+  .form-section__left__title {
+    font-size: 1.35rem;
+  }
+
+  .form-section__right {
+    width: 100%;
+    padding: 3rem 1.65rem;
+  }
+
+  .form-group__label {
+    font-size: 1rem;
+  }
+
+  .form-group__submit {
+    padding: .75rem 2.5rem;
+  }
 }
 
 
