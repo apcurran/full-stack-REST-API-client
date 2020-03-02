@@ -88,7 +88,8 @@ export default {
 }
 
 .lightbox__img {
-    max-width: 52rem;
+    max-width: 85%;
+    max-height: 95%;
 }
 
 .lightbox__x-btn {
@@ -105,6 +106,12 @@ export default {
 
 .lightbox__x-btn:hover {
     color: var(--light-blue);
+}
+
+@media screen and (max-width: 84.5em) {
+    .home-gallery {
+        width: 100%;
+    }
 }
 
 </style>

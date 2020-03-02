@@ -129,7 +129,7 @@ export default {
 .main-home {
     margin: 1rem 3.125rem;
     display: grid;
-    grid-template-columns: auto 1fr;
+    grid-template-columns: 1fr 2fr;
     gap: 3rem;
 }
 
@@ -137,6 +137,7 @@ export default {
 .home-info {
     width: 45rem;
     display: grid;
+    grid-auto-rows: auto;
     gap: 1rem;
 }
 
@@ -214,6 +215,37 @@ export default {
     grid-row: span 5;
     background-color: #999;
     height: 100%;
+}
+
+@media screen and (max-width: 97em) {
+    .home-info {
+        width: 100%;
+    }
+
+    .agent {
+        margin: 1rem 0;
+    }
+}
+
+@media screen and (max-width: 84.5em) {
+    .main-home {
+        margin: 1rem 12% 1rem 3.25rem;
+        grid-template-columns: 1fr;
+    }
+
+    .gmap {
+        height: 20rem;
+    }
+}
+
+@media screen and (max-width: 42.5em) {
+    .main-home {
+        margin: 1rem 1.5rem;
+    }
+
+    .gmap {
+        height: 12rem;
+    }
 }
 
 </style>

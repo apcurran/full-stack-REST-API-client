@@ -90,6 +90,7 @@ export default {
 
 .dashboard {
     width: 90rem;
+    max-width: 92.5%;
     margin: 0 3rem;
     display: grid;
     grid-template-columns: auto 1fr;
@@ -131,6 +132,11 @@ export default {
     border-right: 5px solid var(--blue);
 }
 
+.dashboard__section {
+    width: 100%;
+    padding: 2rem;
+}
+
 .dashboard__section__user {
     display: flex;
     margin: 1.75rem 5rem;
@@ -138,6 +144,56 @@ export default {
 
 .dashboard__section__user__greeting {
     margin-right: 2.5rem;
+    font-size: 1.25rem;
+}
+
+@media screen and (max-width: 57em) {
+    .dashboard {
+        margin: 0 auto;
+        grid-template-columns: 1fr;
+    }
+
+    .form-house {
+        height: auto;
+        overflow-y: auto;
+    }
+
+    .form-house__title {
+        font-size: 1.3rem;
+    }
+
+    .dashboard__nav {
+        width: 100%;
+    }
+
+    .dashboard__nav__list,
+    .dashboard__nav__tab {
+        width: 100%;
+    }
+
+    .dashboard__section__user,
+    .form-house {
+        margin: 2.5rem 0;
+        width: 100%;
+    }
+
+    .form-house__label,
+    .form-house__input {
+        flex: 1 1 auto;
+    }
+}
+
+@media screen and (max-width: 28em) {
+    .form-house__title {
+        font-size: 1.1rem;
+    }
+
+    .dashboard__section__user,
+    .form-house {
+        margin: 1.5rem 0;
+    }
+
+
 }
 
 </style>

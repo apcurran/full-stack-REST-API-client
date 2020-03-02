@@ -227,4 +227,10 @@ export default {
   color: #fff;
 }
 
+@media screen and (max-width: 57em) {
+  .form-house__group {
+    width: 100%;
+  }
+}
+
 </style>
