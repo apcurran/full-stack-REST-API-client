@@ -67,6 +67,14 @@ export default {
 .searchbar-form__field {
     display: flex;
     justify-content: center;
+    border-radius: 500px;
+
+    transition: box-shadow 100ms ease-in-out;
+}
+
+/* Style the form field when either descendant is focused */
+.searchbar-form__field:focus-within {
+    box-shadow: 0 2px 16px rgba(0, 0, 0, .175);
 }
 
 .searchbar-form__input {
@@ -77,8 +85,6 @@ export default {
     outline: none;
     font-size: 1rem;
     background-color: #E2E8F0;
-
-    transition: background-color 125ms ease-in-out;
 }
 
 .searchbar-form__submit {
@@ -89,20 +95,10 @@ export default {
     outline: none;
     cursor: pointer;
     background-color: #E2E8F0;
-
-    transition: background-color 125ms ease-in-out;
 }
 
 .searchbar-form__input::placeholder {
     color: #4A5568;
-}
-
-.searchbar-form__input:focus {
-    background-color: hsl(210, 38%, 96%);
-}
-
-.searchbar-form__input:focus + .searchbar-form__submit {
-    background-color: hsl(210, 38%, 96%);
 }
 
 @media screen and (max-width: 26em) {
