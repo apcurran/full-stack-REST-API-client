@@ -15,10 +15,7 @@
           </ul>
       </nav>
       <section class="dashboard__section">
-        <div class="dashboard__section__user">
-            <h2 class="dashboard__section__user__greeting">Hello, {{ user.name }}!</h2>
-            <Logout/>
-        </div>
+        <DashboardWelcome :user="user"/>
         <!-- Show Admin Dash -->
         <keep-alive v-if="user.admin">
             <component :is="selectedForm"></component>
@@ -30,20 +27,20 @@
 </template>
 
 <script>
-import Logout from "../components/Logout";
+import DashboardWelcome from "../components/DashboardWelcome";
+import UserDashboard from "../components/UserDashboard";
 import NewHouseForm from "../components/NewHouseForm";
 import UpdateHouseForm from "../components/UpdateHouseForm";
 import DeleteHouseForm from "../components/DeleteHouseForm";
-import UserDashboard from "../components/UserDashboard";
 
 export default {
     name: "Dashboard",
     components: {
-        Logout,
+        DashboardWelcome,
+        UserDashboard,
         NewHouseForm,
         UpdateHouseForm,
         DeleteHouseForm,
-        UserDashboard,
     },
     async created() {
         const API_USER_URL = "http://localhost:5000/user/dashboard";
