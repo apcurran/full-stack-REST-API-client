@@ -193,7 +193,23 @@ export default {
         margin: 1.5rem 0;
     }
 
+    .form-house {
+        width: 16rem;
+    }
 
+    .form-house__label {
+        font-size: 1rem;
+    }
+
+    .form-house__input {
+        font-size: .975rem;
+    }
+}
+
+@media screen and (max-width: 23.5em) {
+    .form-house {
+        width: 14rem;
+    }
 }
 
 </style>
