@@ -96,6 +96,8 @@ export default {
 .user-dash__title {
     margin: 1.5rem 0;
     font-size: 1.35rem;
+    padding-bottom: .8rem;
+    border-bottom: 1px solid #e2e8f0;
 }
 
 .home-delete-btn {
@@ -107,6 +109,30 @@ export default {
     border-radius: 4px;
     background-color: transparent;
     cursor: pointer;
+}
+
+@media screen and (max-width: 35em) {
+    .dashboard__section {
+        padding: 1rem;
+    }
+
+    .user-dash {
+        margin: 2rem 1rem;
+    }
+
+    .dashboard__section__user__greeting {
+        margin-left: .5rem;
+    }
+    
+    .user-dash__title {
+        text-align: center;
+    }
+}
+
+@media screen and (max-width: 26.5em) {
+    .homes-group {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    }
 }
 
 </style>
