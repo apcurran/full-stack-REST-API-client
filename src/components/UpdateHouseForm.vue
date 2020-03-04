@@ -3,7 +3,7 @@
     <h1 class="form-house__title">Update a House (Change any necessary values)</h1>
     <div class="form-house__group--update">
       <label for="streetQuery" class="form-house__label--update">Current Street Address:</label>
-      <input v-model="house.streetQuery" type="text" class="form-house__input--update" name="streetQuery">
+      <input v-model="house.streetQuery" type="text" class="form-house__input--update" name="streetQuery" required>
     </div>
     <div class="form-house__group">
       <label for="price" class="form-house__label">New Price</label>
@@ -58,20 +58,20 @@
       <input v-model="house.agent_phone" type="text" class="form-house__input" name="agent_phone">
     </div>
     <div class="form-house__group">
-      <label for="agent_img" class="form-house__label">New Agent Image (URL)</label>
-      <input v-model="house.agent_img" type="text" class="form-house__input" name="agent_img">
+      <label for="agent_img" class="form-house__label">New Agent Image</label>
+      <input @change="onSelect($event)" type="file" accept="image/*" class="form-house__input" name="agent_img">
     </div>
     <div class="form-house__group">
-      <label for="house_img_main" class="form-house__label">New Main House Image (URL)</label>
-      <input v-model="house.house_img_main" type="text" class="form-house__input" name="house_img_main">
+      <label for="house_img_main" class="form-house__label">New Main House Image</label>
+      <input @change="onSelect($event)" type="file" accept="image/*" class="form-house__input" name="house_img_main">
     </div>
     <div class="form-house__group">
-      <label for="house_img_inside_1" class="form-house__label">New House (Indoors) Image 1 (URL)</label>
-      <input v-model="house.house_img_inside_1" type="text" class="form-house__input" name="house_img_inside_1">
+      <label for="house_img_inside_1" class="form-house__label">New House (Indoors) Image 1</label>
+      <input @change="onSelect($event)" type="file" accept="image/*" class="form-house__input" name="house_img_inside_1">
     </div>
     <div class="form-house__group">
-      <label for="house_img_inside_2" class="form-house__label">New House (Indoors) Image 2 (URL)</label>
-      <input v-model="house.house_img_inside_2" type="text" class="form-house__input" name="house_img_inside_2">
+      <label for="house_img_inside_2" class="form-house__label">New House (Indoors) Image 2</label>
+      <input @change="onSelect($event)" type="file" accept="image/*" class="form-house__input" name="house_img_inside_2">
     </div>
     <p class="form__error">{{ errorMessage }}</p>
     <p class="form__correct">{{ correctMessage }}</p>
@@ -121,29 +121,27 @@ export default {
           this.correctMessage = resData.message;
         }
       },
+      onSelect(event) {
+        const currentFileName = event.target.name;
+        const currentFile = event.target.files[0];
+
+        this.house[currentFileName] = currentFile;
+      },
+      removeBlankObjFields(formData) {
+        for (const [key, value] of Object.entries(this.house)) {
+          if (value === null) {
+            continue;
+          } else {
+            formData.append(key, value);
+          }
+        }
+      },
       async submitForm() {
         const API_UPDATE_HOUSE_URL = "http://localhost:5000/homes/update";
 
         let formData = new FormData();
 
-        formData.append("streetQuery", this.house.streetQuery);
-        formData.append("price", this.house.price);
-        formData.append("street", this.house.street);
-        formData.append("city", this.house.city);
-        formData.append("state", this.house.state);
-        formData.append("zip", this.house.zip);
-        formData.append("lat", this.house.lat);
-        formData.append("lon", this.house.lon);
-        formData.append("bedrooms", this.house.bedrooms);
-        formData.append("bathrooms", this.house.bathrooms);
-        formData.append("squareFeet", this.house.squareFeet);
-        formData.append("description", this.house.description);
-        formData.append("agent", this.house.agent);
-        formData.append("agent_img", this.house.agent_img);
-        formData.append("agent_phone", this.house.agent_phone);
-        formData.append("house_img_main", this.house.house_img_main);
-        formData.append("house_img_inside_1", this.house.house_img_inside_1);
-        formData.append("house_img_inside_2", this.house.house_img_inside_2);
+        this.removeBlankObjFields(formData);
 
         const options = {
           method: "PATCH",

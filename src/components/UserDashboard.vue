@@ -37,6 +37,7 @@ export default {
     },
     async created() {
         try {
+
             const API_FAVORITES_URL = `http://localhost:5000/user/favorites`;
             const options = {
                 headers: {
@@ -48,7 +49,6 @@ export default {
             const data = await response.json();
 
             this.homes = data;
-            console.log(this.homes);
 
         } catch (err) {
             console.error(err);
@@ -75,8 +75,6 @@ export default {
             };
             const response = await fetch(API_FAVORITES_DELETE_URL, options);
             const data = await response.json();
-
-            console.log(data);
 
             // Delete from DOM
             const currentEl = event.target;

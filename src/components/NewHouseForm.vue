@@ -121,7 +121,11 @@ export default {
         const currentFile = event.target.files[0];
 
         this.house[currentFileName] = currentFile;
-
+      },
+      addFormData(formData) {
+        for (const [key, value] of Object.entries(this.house)) {
+          formData.append(key, value);
+        }
       },
       async submitForm() {
 
@@ -129,23 +133,7 @@ export default {
 
         let formData = new FormData();
 
-        formData.append("agent_img", this.house.agent_img);
-        formData.append("house_img_main", this.house.house_img_main);
-        formData.append("house_img_inside_1", this.house.house_img_inside_1);
-        formData.append("house_img_inside_2", this.house.house_img_inside_2);
-        formData.append("price", this.house.price);
-        formData.append("street", this.house.street);
-        formData.append("city", this.house.city);
-        formData.append("state", this.house.state);
-        formData.append("zip", this.house.zip);
-        formData.append("lat", this.house.lat);
-        formData.append("lon", this.house.lon);
-        formData.append("bedrooms", this.house.bedrooms);
-        formData.append("bathrooms", this.house.bathrooms);
-        formData.append("squareFeet", this.house.squareFeet);
-        formData.append("description", this.house.description);
-        formData.append("agent", this.house.agent);
-        formData.append("agent_phone", this.house.agent_phone);
+        this.addFormData(formData);
 
         const options = {
           method: "POST",
