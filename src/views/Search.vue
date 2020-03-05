@@ -1,6 +1,7 @@
 <template>
   <main class="main main-search">
     <Searchbar v-on:searchResults="updateHomeResults($event)"/>
+    <div class="loading">Loading...</div>
     <div class="homes-group">
       <router-link :to="'/homes/' + home._id" class="home-group__card__info__link"  v-for="home in homes" :key="home._id">
         <article class="homes-group__card">
@@ -41,7 +42,8 @@ export default {
         searchNav: {
           previous: null,
           next: null
-        }
+        },
+        loading: false
       }
     },
     async created() {
@@ -52,6 +54,7 @@ export default {
       };
 
       try {
+        this.loading = true;
         const response = await fetch(API_SEARCH_URL, options);
         const data = await response.json();
 
@@ -59,6 +62,7 @@ export default {
         this.homes = data.results;
         // Set next page num
         this.searchNav.next = data.next.page;
+        this.loading = false;
 
       } catch (err) {
         console.error(err);
