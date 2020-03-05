@@ -46,7 +46,7 @@ export default {
     methods: {
       async signup() {
         
-        const API_SIGNUP_URL = "http://localhost:5000/user/signup";
+        const API_SIGNUP_URL = "https://alexcurran-billow.herokuapp.com/user/signup";
         const options = {
           method: "POST",
           headers: { "Content-Type": "application/json" },

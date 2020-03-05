@@ -58,7 +58,7 @@ export default {
     },
     async created() {
         try {
-            const API_HOME_URL = `http://localhost:5000/homes/${this.$route.params.homeId}`;
+            const API_HOME_URL = `https://alexcurran-billow.herokuapp.com/homes/${this.$route.params.homeId}`;
             const options = {
                 headers: { "Content-Type": "application/json" }
             };
@@ -96,7 +96,7 @@ export default {
           this.favoritedAlert = data.message;
       },
       async addToFavorites() {
-          const API_FAVORITES_URL = "http://localhost:5000/user/favorites";
+          const API_FAVORITES_URL = "https://alexcurran-billow.herokuapp.com/user/favorites";
           const options = {
               method: "POST",
               headers: {

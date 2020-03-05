@@ -129,7 +129,7 @@ export default {
       },
       async submitForm() {
 
-        const API_NEW_HOUSE_URL = "http://localhost:5000/homes/new";
+        const API_NEW_HOUSE_URL = "https://alexcurran-billow.herokuapp.com/homes/new";
 
         let formData = new FormData();
 

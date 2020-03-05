@@ -38,7 +38,7 @@ export default {
     async created() {
         try {
 
-            const API_FAVORITES_URL = `http://localhost:5000/user/favorites`;
+            const API_FAVORITES_URL = `https://alexcurran-billow.herokuapp.com/user/favorites`;
             const options = {
                 headers: {
                     authorization: `Bearer ${localStorage.authToken}`,
@@ -65,7 +65,7 @@ export default {
         },
         async deleteHome(event, homeId) {
             // DELETE from db
-            const API_FAVORITES_DELETE_URL = `http://localhost:5000/user/favorites/${homeId}`;
+            const API_FAVORITES_DELETE_URL = `https://alexcurran-billow.herokuapp.com/user/favorites/${homeId}`;
             const options = {
                 method: "DELETE",
                 headers: {

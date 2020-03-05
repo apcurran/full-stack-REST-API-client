@@ -40,7 +40,7 @@ export default {
         this.house.streetQuery = null
       },
       async submitForm() {
-        const API_DELETE_HOUSE_URL = "http://localhost:5000/homes/delete";
+        const API_DELETE_HOUSE_URL = "https://alexcurran-billow.herokuapp.com/homes/delete";
         const options = {
           method: "DELETE",
           headers: {

@@ -34,7 +34,7 @@ export default {
     },
     methods: {
       async login() {
-        const API_LOGIN_URL = "http://localhost:5000/user/login";
+        const API_LOGIN_URL = "https://alexcurran-billow.herokuapp.com/user/login";
         const options = {
           method: "POST",
           headers: { "Content-Type": "application/json" },

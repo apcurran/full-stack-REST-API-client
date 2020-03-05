@@ -43,7 +43,7 @@ export default {
         DeleteHouseForm,
     },
     async created() {
-        const API_USER_URL = "http://localhost:5000/user/dashboard";
+        const API_USER_URL = "https://alexcurran-billow.herokuapp.com/user/dashboard";
         const options = {
             headers: {
                 authorization: `Bearer ${localStorage.authToken}`

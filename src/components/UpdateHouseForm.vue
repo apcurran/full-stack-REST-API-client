@@ -1,5 +1,5 @@
 <template>
-  <form @submit.prevent="submitForm" class="form-house">
+  <form @submit.prevent="submitForm" class="form-house" enctype="multipart/form-data">
     <h1 class="form-house__title">Update a House (Change any necessary values)</h1>
     <div class="form-house__group--update">
       <label for="streetQuery" class="form-house__label--update">Current Street Address:</label>
@@ -137,7 +137,7 @@ export default {
         }
       },
       async submitForm() {
-        const API_UPDATE_HOUSE_URL = "http://localhost:5000/homes/update";
+        const API_UPDATE_HOUSE_URL = "https://alexcurran-billow.herokuapp.com/homes/update";
 
         let formData = new FormData();
 

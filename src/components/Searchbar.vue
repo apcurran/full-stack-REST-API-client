@@ -26,7 +26,7 @@ export default {
             this.home.error = resData.error;
         },
         async searchHomes() {
-            const API_SEARCH_URL = "http://localhost:5000/homes/search";
+            const API_SEARCH_URL = "https://alexcurran-billow.herokuapp.com/homes/search";
             const options = {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },

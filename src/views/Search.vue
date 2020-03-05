@@ -46,7 +46,7 @@ export default {
     },
     async created() {
       // Initial page 1 results
-      const API_SEARCH_URL = "http://localhost:5000/homes?page=1&limit=20";
+      const API_SEARCH_URL = "https://alexcurran-billow.herokuapp.com/homes?page=1&limit=20";
       const options = {
         headers: { "Content-Type": "application/json" }
       };
@@ -77,7 +77,7 @@ export default {
         if (this.searchNav.next === null) return;
 
         const searchPage = this.searchNav.next;
-        const API_SEARCH_URL = `http://localhost:5000/homes?page=${searchPage}&limit=20`;
+        const API_SEARCH_URL = `https://alexcurran-billow.herokuapp.com/homes?page=${searchPage}&limit=20`;
         const options = {
           headers: { "Content-Type": "application/json" }
         };
@@ -107,7 +107,7 @@ export default {
         if (this.searchNav.previous === null) return;
 
         const searchPage = this.searchNav.previous;
-        const API_SEARCH_URL = `http://localhost:5000/homes?page=${searchPage}&limit=20`;
+        const API_SEARCH_URL = `https://alexcurran-billow.herokuapp.com/homes?page=${searchPage}&limit=20`;
         const options = {
           headers: { "Content-Type": "application/json" }
         };
