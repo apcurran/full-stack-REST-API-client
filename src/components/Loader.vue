@@ -19,7 +19,7 @@ export default {
     display: flex;
     position: fixed;
     left: 50%;
-    bottom: 5%;
+    bottom: 6%;
     transform: translate(-50%, -50%);
 }
 

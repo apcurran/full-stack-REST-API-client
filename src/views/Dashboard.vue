@@ -14,6 +14,7 @@
               </li>
           </ul>
       </nav>
+      <Loader v-if="loading"/>
       <section class="dashboard__section">
         <DashboardWelcome :user="user"/>
         <!-- Show Admin Dash -->
@@ -32,6 +33,7 @@ import UserDashboard from "../components/UserDashboard";
 import NewHouseForm from "../components/NewHouseForm";
 import UpdateHouseForm from "../components/UpdateHouseForm";
 import DeleteHouseForm from "../components/DeleteHouseForm";
+import Loader from "../components/Loader";
 
 export default {
     name: "Dashboard",
@@ -41,6 +43,7 @@ export default {
         NewHouseForm,
         UpdateHouseForm,
         DeleteHouseForm,
+        Loader,
     },
     async created() {
         const API_USER_URL = "https://alexcurran-billow.herokuapp.com/user/dashboard";
@@ -51,11 +54,13 @@ export default {
         };
 
         try {
+            this.loading = true;
             const response = await fetch(API_USER_URL, options);
             const data = await response.json();
 
             this.user.name = data.name;
             this.user.admin = data.admin;
+            this.loading = false;
 
         } catch (err) {
             console.error(err);
@@ -68,7 +73,8 @@ export default {
             user: {
                 name: null,
                 admin: null
-            }
+            },
+            loading: false
         }
     },
     methods: {
