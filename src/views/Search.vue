@@ -1,7 +1,7 @@
 <template>
   <main class="main main-search">
     <Searchbar v-on:searchResults="updateHomeResults($event)"/>
-    <div v-if="loading" class="loading">Loading...</div>
+    <Loader v-if="loading"/>
     <div class="homes-group">
       <router-link :to="'/homes/' + home._id" class="home-group__card__info__link"  v-for="home in homes" :key="home._id">
         <article class="homes-group__card">
@@ -30,11 +30,13 @@
 
 <script>
 import Searchbar from "../components/Searchbar";
+import Loader from "../components/Loader";
 
 export default {
     name: "Search",
     components: {
       Searchbar,
+      Loader,
     },
     data() {
       return {
