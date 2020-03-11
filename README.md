@@ -2,6 +2,10 @@
 
 [Link](https://alexcurran-billow.netlify.com/)
 
+![Search view](./README-imgs/billow-search-img.jpg)
+
+![Home view](./README-imgs/billow-home-img.jpg)
+
 ## Features:
 
 * Utilizes Vue.js framework
@@ -24,6 +28,8 @@
 
 * Admin dashboard has selective components that show on tab click
 
+* Admins may create new home listings, update them, or delete them
+
 * Google Maps API implemented with custom markers to show lat/lon location of individual homes
 
-* Modern CSS layout via Grid and Flexbox used throughout 
+* Custom modern CSS layout via Grid and Flexbox used throughout 
