@@ -26,8 +26,6 @@ export default {
             this.home.error = resData.error;
         },
         async searchHomes() {
-            debugger;
-
             const API_SEARCH_URL = `https://alexcurran-billow.herokuapp.com/homes/search/${this.home.searchTerm}`;
 
             try {
