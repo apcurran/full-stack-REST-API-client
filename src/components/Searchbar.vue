@@ -89,6 +89,10 @@ export default {
 
 .searchbar-form__submit {
     flex: 2 2 10%;
+    /* Align icon within btn */
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
     padding: .5rem;
     border: none;
     border-radius: 0 500px 500px 0;
