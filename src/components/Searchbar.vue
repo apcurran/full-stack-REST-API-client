@@ -16,7 +16,7 @@ export default {
     data() {
         return {
             home: {
-                search: null,
+                searchTerm: null,
                 error: null
             }
         }
@@ -26,18 +26,11 @@ export default {
             this.home.error = resData.error;
         },
         async searchHomes() {
-            const API_SEARCH_URL = "https://alexcurran-billow.herokuapp.com/homes/search";
-            const options = {
-                method: "POST",
-                headers: { "Content-Type": "application/json" },
-                body: JSON.stringify({
-                    searchTerm: this.home.search
-                })
-            };
+            const API_SEARCH_URL = `https://alexcurran-billow.herokuapp.com/homes/search/${this.home.searchTerm}`;
 
             try {
 
-                const response = await fetch(API_SEARCH_URL, options);
+                const response = await fetch(API_SEARCH_URL);
                 const data = await response.json();
 
                 this.checkForErrors(data);
