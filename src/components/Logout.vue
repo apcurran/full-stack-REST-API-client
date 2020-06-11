@@ -3,6 +3,8 @@
 </template>
 
 <script>
+import LoginStatusStore from "../stores/LoginStatusStore";
+
 export default {
     name: "Logout",
     methods: {
@@ -11,9 +13,14 @@ export default {
                 localStorage.clear();
             }
 
+            this.changeLoginStatus(false);
+
             this.$router.push("/login");
+        },
+        changeLoginStatus(status) {
+            LoginStatusStore.methods.isLoggedIn(status);
         }
-}
+    }
 }
 </script>
 

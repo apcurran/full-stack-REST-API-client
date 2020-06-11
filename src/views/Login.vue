@@ -21,6 +21,8 @@
 </template>
 
 <script>
+import LoginStatusStore from "../stores/LoginStatusStore";
+
 export default {
     name: "Login",
     data() {
@@ -58,6 +60,8 @@ export default {
             localStorage.setItem("admin", data.moddedUser.admin);
           }
 
+          this.changeLoginStatus(true);
+
           this.$router.push("/dashboard");
 
         } catch (err) {
@@ -67,6 +71,9 @@ export default {
       },
       checkForErrors(resData) {
         this.errorMessage = resData.error;
+      },
+      changeLoginStatus(status) {
+        LoginStatusStore.methods.isLoggedIn(status);
       }
     }
 }

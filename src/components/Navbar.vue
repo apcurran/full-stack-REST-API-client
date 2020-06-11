@@ -2,7 +2,7 @@
     <header class="header--main">
       <nav class="nav">
         <router-link class="logo" :to="{ name: 'Main' }">Billow</router-link>
-        <ul class="nav__list">
+        <ul v-if="LoginStatusStore.loggedIn === false" class="nav__list">
           <li class="nav__list__item">
             <router-link class="nav__list__link" :to="{ name: 'Search' }">Search</router-link>
           </li>
@@ -11,6 +11,11 @@
           </li>
           <li class="nav__list__item">
             <router-link class="nav__list__link" :to="{ name: 'Signup' }">Signup</router-link>
+          </li>
+        </ul>
+        <ul v-else class="nav__list">
+          <li class="nav__list__item">
+            <router-link class="nav__list__link" :to="{ name: 'Search' }">Search</router-link>
           </li>
           <li class="nav__list__item">
             <router-link class="nav__list__link" :to="{ name: 'Dashboard' }">Dashboard</router-link>
@@ -21,11 +26,13 @@
 </template>
 
 <script>
+import LoginStatusStore from "../stores/LoginStatusStore";
+
 export default {
     name: "Navbar",
     data() {
         return {
-          
+          LoginStatusStore: LoginStatusStore.data
         }
     }
 }
