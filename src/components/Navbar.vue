@@ -34,6 +34,14 @@ export default {
         return {
           LoginStatusStore: LoginStatusStore.data
         }
+    },
+    methods: {
+        checkLoginStatus() {
+            LoginStatusStore.methods.isLoggedIn();
+        }
+    },
+    created() {
+      this.checkLoginStatus();
     }
 }
 </script>
