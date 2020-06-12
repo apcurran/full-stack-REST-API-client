@@ -1,6 +1,6 @@
 # Billow Home Realty App (Client Side)
 
-[Link](https://alexcurran-billow.netlify.com/)
+[Link](https://billow-client.firebaseapp.com/)
 
 ![Search view](./README-imgs/billow-search-img.jpg)
 
