@@ -3,8 +3,12 @@ const LoginStatusStore = {
         loggedIn: false
     },
     methods: {
-        isLoggedIn(status) {
-            LoginStatusStore.data.loggedIn = status;
+        isLoggedIn() {
+            if (localStorage.authToken) {
+                LoginStatusStore.data.loggedIn = true;
+            } else {
+                LoginStatusStore.data.loggedIn = false;
+            }
         }
     }
 };

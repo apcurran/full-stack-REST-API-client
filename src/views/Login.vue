@@ -60,7 +60,7 @@ export default {
             localStorage.setItem("admin", data.moddedUser.admin);
           }
 
-          this.changeLoginStatus(true);
+          this.changeLoginStatus();
 
           this.$router.push("/dashboard");
 
@@ -72,8 +72,8 @@ export default {
       checkForErrors(resData) {
         this.errorMessage = resData.error;
       },
-      changeLoginStatus(status) {
-        LoginStatusStore.methods.isLoggedIn(status);
+      changeLoginStatus() {
+        LoginStatusStore.methods.isLoggedIn();
       }
     }
 }

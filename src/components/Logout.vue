@@ -13,12 +13,12 @@ export default {
                 localStorage.clear();
             }
 
-            this.changeLoginStatus(false);
+            this.changeLoginStatus();
 
             this.$router.push("/login");
         },
-        changeLoginStatus(status) {
-            LoginStatusStore.methods.isLoggedIn(status);
+        changeLoginStatus() {
+            LoginStatusStore.methods.isLoggedIn();
         }
     }
 }
