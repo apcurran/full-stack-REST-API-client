@@ -18,7 +18,7 @@
           </div>
         </div>
       </section>
-      <img src="../assets/images/kitchen.jpg" alt="Home kitchen" class="main-img" width="1920" height="1280">
+      <img src="../assets/images/kitchen.jpg" alt="Home kitchen" class="main-img" width="640" height="427">
     </section>
     <div class="main-link-container">
       <router-link class="main-search-link" :to="{ name: 'Search' }">Find Homes</router-link>
