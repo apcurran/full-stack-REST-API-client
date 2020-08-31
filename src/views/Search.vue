@@ -6,7 +6,7 @@
       <router-link :to="'/homes/' + home._id" class="home-group__card__info__link"  v-for="home in homes" :key="home._id">
         <article class="homes-group__card">
           <div class="homes-group__card__img-container">
-            <img :src="home.house_img_main" alt="House" class="homes-group__card__img">
+            <img :src="home.house_img_main" alt="House" class="homes-group__card__img" width="296" height="192">
           </div>
           <div class="home-group__card__info">
             <h2 class="home-group__card__info__price">{{ formatPrice(home.price) }}</h2>

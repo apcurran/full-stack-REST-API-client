@@ -10,18 +10,18 @@
               <p class="desc__para">{{ homeInfo.description }}</p>
               <div class="desc__ammenities-group">
                 <div class="desc__ammenities-subgroup">
-                    <img src="../assets/icons/bedroom.svg" alt="Bedroom icon" class="desc__ammenities__img">
+                    <img src="../assets/icons/bedroom.svg" alt="Bedroom icon" class="desc__ammenities__img" width="48" height="48">
                     <p class="desc__ammenities__para">{{ homeInfo.bedrooms }} bedrooms</p>
                 </div>
                 <div class="desc__ammenities-subgroup">
-                    <img src="../assets/icons/bathroom.svg" alt="Bathroom icon" class="desc__ammenities__img">
+                    <img src="../assets/icons/bathroom.svg" alt="Bathroom icon" class="desc__ammenities__img" width="48" height="48">
                     <p class="desc__ammenities__para">{{ homeInfo.bathrooms }} bathroom(s)</p>
                 </div>
               </div>
           </div>
           <div class="agent">
               <div class="agent__avatar__wrapper">
-                <img :src="homeInfo.agent_img" alt="Agent avatar" class="agent__avatar">
+                <img :src="homeInfo.agent_img" alt="Agent avatar" class="agent__avatar" width="128" height="128">
               </div>
               <div class="agent__info-group">
                   <h3 class="agent__info__title">{{ homeInfo.agent }}</h3>

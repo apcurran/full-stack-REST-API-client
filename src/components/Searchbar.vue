@@ -4,7 +4,7 @@
       <div class="searchbar-form__field">
           <input v-model="home.searchTerm" type="text" class="searchbar-form__input" name="search" placeholder="Search by street, city, state, or zip code" required>
           <button type="submit" class="searchbar-form__submit">
-              <img src="../assets/icons/icon-search.svg" alt="Magnifying glass search icon" class="searchbar-form__submit__img">
+              <img src="../assets/icons/icon-search.svg" alt="Magnifying glass search icon" class="searchbar-form__submit__img" width="24" height="24">
           </button>
       </div>
   </form>

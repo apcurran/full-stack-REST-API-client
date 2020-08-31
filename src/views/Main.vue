@@ -5,20 +5,20 @@
         <div class="main-info__group">
           <h1 class="main-info__title">Find Your Dream Home.</h1>
           <div class="main-info__subgroup">
-            <img src="../assets/icons/bedroom.svg" alt="Bedroom icon" class="main-info__subgroup__img">
+            <img src="../assets/icons/bedroom.svg" alt="Bedroom icon" class="main-info__subgroup__img" width="56" height="56">
             <p class="main-info__subgroup__para">3 Bedrooms</p>
           </div>
           <div class="main-info__subgroup">
-            <img src="../assets/icons/bathroom.svg" alt="Bathroom icon" class="main-info__subgroup__img">
+            <img src="../assets/icons/bathroom.svg" alt="Bathroom icon" class="main-info__subgroup__img" width="56" height="56">
             <p class="main-info__subgroup__para">2 Bathrooms</p>
           </div>
           <div class="main-info__subgroup">
-            <img src="../assets/icons/kitchen.svg" alt="Kitchen icon" class="main-info__subgroup__img">
+            <img src="../assets/icons/kitchen.svg" alt="Kitchen icon" class="main-info__subgroup__img" width="56" height="56">
             <p class="main-info__subgroup__para">New Kitchen</p>
           </div>
         </div>
       </section>
-      <img loading="eager" src="../assets/images/kitchen.jpg" alt="Home kitchen" class="main-img">
+      <img src="../assets/images/kitchen.jpg" alt="Home kitchen" class="main-img" width="1920" height="1280">
     </section>
     <div class="main-link-container">
       <router-link class="main-search-link" :to="{ name: 'Search' }">Find Homes</router-link>
@@ -50,6 +50,7 @@ export default {
 
 .main-img {
   width: 40rem;
+  height: auto;
 }
 
 .main-info__group {
