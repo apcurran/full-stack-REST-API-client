@@ -2,7 +2,7 @@
   <main class="main main-form">
     <section class="form-section">
       <div class="form-section__left signup-left">
-        <h1 class="form-section__left__title">Signup for an Account</h1>
+        <h1 class="form-section__left__title">Sign up for an Account</h1>
       </div>
       <form @submit.prevent="signup" id="signup-right" class="form-section__right">
         <p v-if="errorMessage" class="form__error">{{ errorMessage }}</p>
@@ -23,7 +23,7 @@
           <label for="secret" class="form-group__label">Admin Password</label>
           <input v-model="user.secret" type="password" class="form-group__input" name="secret">
         </div>
-        <input type="submit" class="form-group__submit" value="Login">
+        <input type="submit" class="form-group__submit" value="Sign Up">
       </form>
     </section>
   </main>

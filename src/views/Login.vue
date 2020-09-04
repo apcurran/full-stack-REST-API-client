@@ -2,7 +2,7 @@
   <main class="main main-form">
     <section class="form-section">
       <div class="form-section__left">
-        <h1 class="form-section__left__title">Login to Your Account</h1>
+        <h1 class="form-section__left__title">Log in to Your Account</h1>
       </div>
       <form @submit.prevent="login" class="form-section__right">
         <p v-if="errorMessage" class="form__error">{{ errorMessage }}</p>
@@ -14,7 +14,7 @@
           <label for="password" class="form-group__label">Password</label>
           <input v-model="user.password" type="password" class="form-group__input" name="password" required>
         </div>
-        <input type="submit" class="form-group__submit" value="Login">
+        <input type="submit" class="form-group__submit" value="Log In">
       </form>
     </section>
   </main>

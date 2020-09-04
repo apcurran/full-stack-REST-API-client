@@ -7,10 +7,10 @@
             <router-link class="nav__list__link" :to="{ name: 'Search' }">Search</router-link>
           </li>
           <li class="nav__list__item">
-            <router-link class="nav__list__link" :to="{ name: 'Login' }">Login</router-link>
+            <router-link class="nav__list__link" :to="{ name: 'Login' }">Log In</router-link>
           </li>
           <li class="nav__list__item">
-            <router-link class="nav__list__link" :to="{ name: 'Signup' }">Signup</router-link>
+            <router-link class="nav__list__link" :to="{ name: 'Signup' }">Sign Up</router-link>
           </li>
         </ul>
         <ul v-else class="nav__list">

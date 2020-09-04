@@ -1,12 +1,12 @@
 <template>
   <form @submit.prevent="searchHomes" class="searchbar-form">
-      <p v-if="home.error" class="searchbar-form__error">{{ home.error }}</p>
       <div class="searchbar-form__field">
           <input v-model="home.searchTerm" type="text" class="searchbar-form__input" name="search" placeholder="Search by street, city, state, or zip code" required>
           <button type="submit" class="searchbar-form__submit">
               <img src="../assets/icons/icon-search.svg" alt="Magnifying glass search icon" class="searchbar-form__submit__img" width="24" height="24">
           </button>
       </div>
+      <p v-if="home.error" class="searchbar-form__error">{{ home.error }}</p>
   </form>
 </template>
 
@@ -96,6 +96,14 @@ export default {
 
 .searchbar-form__input::placeholder {
     color: #4A5568;
+}
+
+.searchbar-form__error {
+    margin-top: 2rem;
+    padding: 1rem 2rem;
+    background-color: #FEEBC8;
+    color: #7b341e;
+    border-radius: 10px;
 }
 
 @media screen and (max-width: 26em) {
