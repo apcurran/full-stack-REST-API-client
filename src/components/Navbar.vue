@@ -62,6 +62,7 @@ export default {
 
 .nav__list {
   display: flex;
+  align-items: center;
   margin-left: 6rem;
 }
 
