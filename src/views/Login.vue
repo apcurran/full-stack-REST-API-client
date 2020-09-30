@@ -89,7 +89,7 @@ export default {
 
   /* Fallback bg */
   background-color: #64a2df;
-  background-image: linear-gradient(to right, #64A2DF, #AACEF6);
+  background-image: linear-gradient(to right, hsl(210, 66%, 70%), hsl(212, 81%, 88%));
 }
 
 .form-section {
@@ -102,11 +102,22 @@ export default {
 }
 
 .form-section__left {
+  --light-green-HSL: 145 100% 77%;
+  --light-blue-HSL: 205 100% 50%;
+
   display: flex;
   justify-content: center;
   align-items: center;
   color: #fff;
-  background-image: linear-gradient(to bottom, #A6FFCB, #1FA2FF);
+  background-image: 
+    radial-gradient(
+      circle at top right, 
+      hsl(var(--light-green-HSL)), hsl(var(--light-green-HSL) / 0%)
+    ),
+    radial-gradient(
+      circle at bottom left, 
+      hsl(var(--light-blue-HSL)), hsl(var(--light-blue-HSL) / 0%)
+    );
 }
 
 .form-section__left__title {
