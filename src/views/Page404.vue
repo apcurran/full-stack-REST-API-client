@@ -1,7 +1,7 @@
 <template>
   <main class="main--error-404">
-      <h1 class="main--error-404__header">404</h1>
-      <h2 class="main--error-404__sub-header">This page does not exist.</h2>
+    <h1 class="main--error-404__header">404</h1>
+    <h2 class="main--error-404__sub-header">This page does not exist.</h2>
   </main>
 </template>
 
@@ -12,8 +12,8 @@ export default {
 </script>
 
 <style>
+
 .main--error-404 {
-    margin: 0 3rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -21,6 +21,7 @@ export default {
 }
 
 .main--error-404__header {
+    vertical-align: top;
     font-size: calc(4rem + 12vw);
 }
 
