@@ -127,7 +127,7 @@ export default {
 <style>
 
 .main-home {
-    margin: 1rem 3.125rem;
+    margin: 1rem 3.125rem 6rem 3.125rem;
     display: grid;
     grid-template-columns: 1fr 2fr;
     gap: 3rem;
@@ -229,7 +229,7 @@ export default {
 
 @media screen and (max-width: 84.5em) {
     .main-home {
-        margin: 1rem 12% 1rem 3.25rem;
+        margin: 1rem 12% 6rem 3.25rem;
         grid-template-columns: 1fr;
     }
 
@@ -240,7 +240,7 @@ export default {
 
 @media screen and (max-width: 42.5em) {
     .main-home {
-        margin: 1rem 1.5rem;
+        margin: 1rem 1.5rem 6rem 1.5rem;
     }
 
     .gmap {

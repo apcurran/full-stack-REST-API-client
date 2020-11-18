@@ -13,7 +13,7 @@ export default {
 <style>
 
 .footer {
-  margin-top: 6rem;
+  /* margin-top: 6rem; */
   padding: 2rem;
   background-color: #1a202c;
   color: #fff;

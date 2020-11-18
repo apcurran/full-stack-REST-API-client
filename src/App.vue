@@ -60,8 +60,10 @@ a {
 }
 
 /* Global default height for all pages */
-.main {
-  min-height: 80vh;
+#app {
+  min-height: 100vh;
+  display: grid;
+  grid-auto-rows: auto 1fr auto;
 }
 
 ::selection {

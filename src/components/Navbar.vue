@@ -49,7 +49,7 @@ export default {
 <style>
 
 .nav {
-  padding: 2.5rem 3rem;
+  padding: 2.25rem 3rem;
   display: flex;
   align-items: center;
 }
