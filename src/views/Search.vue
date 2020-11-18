@@ -154,8 +154,8 @@ export default {
 <style>
 
 .main-search {
-  width: 80rem;
-  max-width: 92.5%;
+  width: 92.5%;
+  max-width: 80rem;
   margin: 0 auto;
 }
 

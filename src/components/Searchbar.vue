@@ -51,8 +51,8 @@ export default {
 <style>
 
 .searchbar-form {
-    width: 40rem;
-    max-width: 100%;
+    width: 100%;
+    max-width: 40rem;
     margin: 2rem auto 5rem auto;
     text-align: center;
 }
