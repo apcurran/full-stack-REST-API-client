@@ -1,9 +1,9 @@
 <template>
     <main class="gallery">
         <section class="home-gallery">
-            <img :src="houseImages[0]" @click="show(0)" alt="Home" class="home-gallery__img1">
-            <img :src="houseImages[1]" @click="show(1)" alt="Home inside" class="home-gallery__img2">
-            <img :src="houseImages[2]" @click="show(2)" alt="Home inside" class="home-gallery__img3">
+            <img :src="houseImages[0]" @click="show(0)" alt="Home" class="home-gallery__img1" width="640" height="770">
+            <img :src="houseImages[1]" @click="show(1)" alt="Home inside" class="home-gallery__img2" width="318" height="239">
+            <img :src="houseImages[2]" @click="show(2)" alt="Home inside" class="home-gallery__img3" width="318" height="239">
         </section>
         <div v-if="visible" @click="hide" class="lightbox">
             <img :src="houseImages[index]" @click.stop="" alt="House image" class="lightbox__img">
@@ -68,6 +68,8 @@ export default {
 .home-gallery__img2,
 .home-gallery__img3 {
     width: 100%;
+    height: auto;
+    object-fit: cover;
     cursor: pointer;
 }
 
