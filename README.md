@@ -1,7 +1,5 @@
 # Billow Home Realty App (Client Side)
 
-[Link](https://billow-client.firebaseapp.com/)
-
 ![Search view](./README-imgs/billow-search-img.jpg)
 
 ![Home view](./README-imgs/billow-home-img.jpg)
